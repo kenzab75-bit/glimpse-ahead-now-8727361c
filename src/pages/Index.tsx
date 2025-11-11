@@ -8,6 +8,7 @@ import { WhistleblowForm } from "@/components/WhistleblowForm";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <FAQ />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
