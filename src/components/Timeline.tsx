@@ -62,7 +62,6 @@ export const Timeline = () => {
         "Publicités agressives sur les réseaux sociaux ciblant les patients français et internationaux",
         "Promesses de prix 60-70% moins chers qu'en Europe avec des 'garanties' attractives",
         "Communication ultra-réactive et rassurante via WhatsApp et réseaux sociaux",
-        "Faux avis positifs et témoignages arrangés pour créer une image de confiance",
         "Partenariats avec des influenceurs pour promouvoir la clinique"
       ],
       sources: [
