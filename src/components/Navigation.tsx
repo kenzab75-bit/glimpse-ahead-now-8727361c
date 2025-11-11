@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, AlertTriangle, ChevronDown } from "lucide-react";
+import { Menu, X, Scale, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Navigation = () => {
@@ -40,19 +40,19 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-8 py-5">
         <div className="flex justify-between items-center">
-          {/* Logo - Premium avec effet subtil */}
+          {/* Logo - Format avec icône de balance */}
           <button
             onClick={() => scrollToSection("hero")}
-            className="flex items-center space-x-3 group relative"
+            className="flex items-center gap-3 group relative px-4 py-2 rounded-lg hover:bg-white/[0.02] transition-all duration-300"
           >
             <div className="relative">
-              <AlertTriangle className="h-7 w-7 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]" />
+              <Scale className="h-8 w-8 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(220,38,38,0.6)]" />
             </div>
-            <div className="flex items-baseline space-x-0.5">
-              <span className="text-xl font-black tracking-tight text-foreground/95 group-hover:text-foreground transition-all duration-300">
+            <div className="flex items-center gap-1">
+              <span className="text-2xl font-black tracking-tight text-foreground group-hover:text-foreground transition-all duration-300">
                 LemaClinic
               </span>
-              <span className="text-xl font-black tracking-tight text-primary group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.4)] transition-all duration-300">
+              <span className="text-2xl font-black tracking-tight text-primary group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.5)] transition-all duration-300">
                 Truth
               </span>
             </div>
