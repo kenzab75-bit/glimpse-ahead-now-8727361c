@@ -65,7 +65,21 @@ export const Hero = () => {
         {/* Main Title */}
         <h1 className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none" data-aos="fade-up" data-aos-delay="600">
           <span className="block text-foreground">LemaClinic</span>
-          <span className="block text-primary">Truth</span>
+          <span className="block text-primary relative">
+            {['T', 'r', 'u', 't', 'h'].map((letter, index) => (
+              <span
+                key={index}
+                className="inline-block opacity-0"
+                style={{
+                  animation: 'fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                  animationDelay: `${1200 + index * 150}ms`,
+                  textShadow: '0 0 40px rgba(220, 38, 38, 0.6), 0 0 80px rgba(220, 38, 38, 0.3)',
+                }}
+              >
+                {letter}
+              </span>
+            ))}
+          </span>
         </h1>
 
         {/* Slogan */}
