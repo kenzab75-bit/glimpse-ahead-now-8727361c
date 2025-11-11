@@ -1,7 +1,31 @@
 import { Shield, Heart } from "lucide-react";
 import { PremiumButton } from "@/components/ui/premium-button";
+import { useState, useEffect } from "react";
 
 export const Hero = () => {
+  const [supportCount, setSupportCount] = useState(0);
+  const targetCount = 1247; // Nombre de soutiens
+
+  useEffect(() => {
+    // Animation du compteur
+    const duration = 2000; // 2 secondes
+    const steps = 50;
+    const increment = targetCount / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= targetCount) {
+        setSupportCount(targetCount);
+        clearInterval(timer);
+      } else {
+        setSupportCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
       id="accueil"
@@ -68,13 +92,29 @@ export const Hero = () => {
           >
             Découvrir mon histoire
           </PremiumButton>
-          <PremiumButton
-            variant="secondary"
-            size="lg"
-            icon={<Heart className="h-6 w-6" />}
-          >
-            Soutenir le projet
-          </PremiumButton>
+          
+          <div className="flex flex-col items-center gap-3">
+            <PremiumButton
+              variant="secondary"
+              size="lg"
+              icon={<Heart className="h-6 w-6" />}
+            >
+              Soutenir le projet
+            </PremiumButton>
+            
+            {/* Compteur de soutiens */}
+            <div className="glass-premium px-6 py-3 rounded-full flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <Heart className="h-5 w-5 text-[#E53935] animate-pulse" />
+                <span className="text-2xl font-bold text-foreground tabular-nums">
+                  {supportCount.toLocaleString('fr-FR')}
+                </span>
+              </div>
+              <span className="text-sm text-muted-foreground font-medium">
+                personnes soutiennent cette cause
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
