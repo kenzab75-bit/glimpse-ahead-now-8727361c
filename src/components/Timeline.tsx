@@ -66,7 +66,7 @@ export const Timeline = () => {
       ],
       sources: [
         { label: "Témoignage patient #12", info: "Devis initial de 3500€ pour 20 dents soignées" },
-        { label: "Capture écran Facebook", info: "Publicité sponsorisée janvier 2024" },
+        { label: "Capture écran Instagram/Facebook", info: "Publicité sponsorisée janvier 2024" },
         { label: "Conversation WhatsApp", info: "Échanges avant le départ" }
       ]
     },
