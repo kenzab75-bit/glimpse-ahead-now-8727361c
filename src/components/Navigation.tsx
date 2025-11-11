@@ -123,7 +123,7 @@ export const Navigation = () => {
                     onClick={() => scrollToSection("histoire")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
-                    Anatomie de l'affaire
+                    Le piège
                   </button>
                   <button
                     onClick={() => scrollToSection("vos-droits")}
@@ -266,7 +266,7 @@ export const Navigation = () => {
                              text-muted-foreground/80 hover:text-foreground
                              hover:bg-white/[0.03] transition-all duration-300"
                   >
-                    → Anatomie de l'affaire
+                    → Le piège
                   </button>
                   <button
                     onClick={() => scrollToSection("vos-droits")}
