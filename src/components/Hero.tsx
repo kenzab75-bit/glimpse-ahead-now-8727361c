@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 export const Hero = () => {
   const [supportCount, setSupportCount] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const targetCount = 1247; // Nombre de soutiens
 
   useEffect(() => {
@@ -29,12 +31,29 @@ export const Hero = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Déclencher les particules au premier scroll
+      if (currentScrollY > 50 && !hasScrolled) {
+        setHasScrolled(true);
+        // Générer 20 particules avec positions et délais aléatoires
+        const newParticles = Array.from({ length: 20 }, (_, i) => ({
+          id: i,
+          x: Math.random() * 200 - 100, // -100 à 100
+          y: Math.random() * 200 - 100,
+          delay: Math.random() * 300,
+        }));
+        setParticles(newParticles);
+        
+        // Nettoyer les particules après l'animation
+        setTimeout(() => setParticles([]), 2000);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasScrolled]);
 
   // Calcul des offsets parallaxe
   const titleParallaxY = scrollY * 0.3;
@@ -79,7 +98,7 @@ export const Hero = () => {
 
         {/* Main Title */}
         <h1 
-          className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none" 
+          className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none relative" 
           data-aos="fade-up" 
           data-aos-delay="600"
           style={{
@@ -89,7 +108,7 @@ export const Hero = () => {
           }}
         >
           <span className="block text-foreground">LemaClinic</span>
-          <span className="block text-primary relative">
+          <span className="block text-primary relative inline-block">
             {['T', 'r', 'u', 't', 'h'].map((letter, index) => (
               <span
                 key={index}
@@ -102,6 +121,23 @@ export const Hero = () => {
               >
                 {letter}
               </span>
+            ))}
+            
+            {/* Particules lumineuses */}
+            {particles.map((particle) => (
+              <span
+                key={particle.id}
+                className="absolute w-2 h-2 rounded-full bg-[#E53935] pointer-events-none"
+                style={{
+                  top: '50%',
+                  left: '50%',
+                  animation: 'particleDisperse 1.5s ease-out forwards',
+                  animationDelay: `${particle.delay}ms`,
+                  boxShadow: '0 0 10px rgba(220, 38, 38, 0.8), 0 0 20px rgba(220, 38, 38, 0.6)',
+                  '--particle-x': `${particle.x}px`,
+                  '--particle-y': `${particle.y}px`,
+                } as React.CSSProperties}
+              />
             ))}
           </span>
         </h1>
