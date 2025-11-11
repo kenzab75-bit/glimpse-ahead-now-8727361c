@@ -161,10 +161,10 @@ export const Timeline = () => {
             <div className="space-y-4 mb-8">
               <h2 className="text-5xl lg:text-7xl font-black leading-tight">
                 <span className="block text-foreground mb-2">
-                  La Machine
+                  Une mécanique
                 </span>
                 <span className="block bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-                  à Broyer les Patients
+                  bien étudiée
                 </span>
               </h2>
             </div>
