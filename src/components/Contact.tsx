@@ -1,97 +1,85 @@
 import { useState } from "react";
-import { Mail, Send } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message Sent",
-      description: "We'll get back to you as soon as possible.",
+      title: "Message envoyé",
+      description: "Nous vous répondrons dès que possible.",
     });
-    setFormData({ name: "", email: "", message: "" });
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section className="py-20 bg-background" id="contact">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <Mail className="h-16 w-16 text-primary mx-auto mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-            <p className="text-xl text-muted-foreground">
-              Have questions or want to share information? Contact us securely
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="glass-strong p-8 rounded-2xl space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  required
-                  className="bg-background/50"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                  className="bg-background/50"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message
-              </label>
-              <Textarea
-                id="message"
-                placeholder="Your message..."
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                required
-                rows={6}
-                className="bg-background/50"
-              />
-            </div>
-
-            <Button type="submit" size="lg" className="w-full">
-              <Send className="mr-2 h-5 w-5" />
-              Send Message
-            </Button>
-          </form>
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-4xl font-bold mb-4">Nous Contacter</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Des questions ou vous souhaitez contribuer ? Contactez-nous en toute sécurité.
+          </p>
         </div>
+
+        <Card className="max-w-2xl mx-auto glass-card" data-aos="fade-up" data-aos-delay="200">
+          <CardContent className="p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="name">Nom</Label>
+                  <Input
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Votre nom"
+                    className="mt-2"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="votre@email.com"
+                    className="mt-2"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <Label htmlFor="contactMessage">Message</Label>
+                <Textarea
+                  id="contactMessage"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Comment pouvons-nous vous aider ?"
+                  className="min-h-[150px] mt-2"
+                  required
+                />
+              </div>
+              <Button type="submit" className="w-full" size="lg">
+                <Mail className="mr-2 h-5 w-5" />
+                Envoyer le message
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

@@ -35,20 +35,27 @@ export const Navigation = () => {
             className="flex items-center space-x-3 group"
           >
             <AlertTriangle className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-              LemaClinic Truth
-            </span>
+            <div>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">LemaClinic</span>
+              <span className="text-xl font-bold text-primary">Truth</span>
+            </div>
           </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            {["whistleblow", "stories", "faq", "contact"].map((item) => (
+            {[
+              { id: "accueil", label: "Accueil" },
+              { id: "mon-histoire", label: "Mon histoire" },
+              { id: "s-informer", label: "S'informer" },
+              { id: "agir", label: "Agir" },
+              { id: "contact", label: "Contact" }
+            ].map((item) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-muted-foreground hover:text-primary transition-colors capitalize"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
-                {item}
+                {item.label}
               </button>
             ))}
           </div>
@@ -67,13 +74,19 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden mt-4 space-y-4 animate-fade-in">
-            {["whistleblow", "stories", "faq", "contact"].map((item) => (
+            {[
+              { id: "accueil", label: "Accueil" },
+              { id: "mon-histoire", label: "Mon histoire" },
+              { id: "s-informer", label: "S'informer" },
+              { id: "agir", label: "Agir" },
+              { id: "contact", label: "Contact" }
+            ].map((item) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary transition-colors capitalize"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left py-2 text-muted-foreground hover:text-primary transition-colors"
               >
-                {item}
+                {item.label}
               </button>
             ))}
           </div>

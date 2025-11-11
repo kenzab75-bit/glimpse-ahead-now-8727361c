@@ -5,59 +5,50 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
-  {
-    question: "Is my identity really protected?",
-    answer:
-      "Yes, absolutely. We use military-grade encryption and never collect identifying information. We don't track IP addresses, and all submissions are routed through secure, anonymous channels.",
-  },
-  {
-    question: "What happens after I submit a report?",
-    answer:
-      "Your report is reviewed by our investigation team, cross-referenced with other submissions, and forwarded to appropriate legal authorities when necessary. You'll never be contacted unless you provide a way to reach you.",
-  },
-  {
-    question: "Can I be sued for whistleblowing?",
-    answer:
-      "Whistleblower protections exist in most jurisdictions. Since your identity remains completely anonymous through our platform, legal action against you is virtually impossible. We also work with legal experts to ensure compliance.",
-  },
-  {
-    question: "How do you verify the claims?",
-    answer:
-      "We have a rigorous verification process that includes cross-referencing multiple sources, consulting with medical experts, and reviewing any documentation provided. Only verified claims are made public.",
-  },
-  {
-    question: "What if I have evidence to share?",
-    answer:
-      "You can securely upload documents, photos, or other evidence through our encrypted submission portal. All files are automatically encrypted and stored securely.",
-  },
-];
-
 export const FAQ = () => {
-  return (
-    <section id="faq" className="py-20 bg-card">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Your safety and privacy questions answered
-            </p>
-          </div>
+  const faqs = [
+    {
+      question: "Comment puis-je témoigner de manière anonyme ?",
+      answer: "Utilisez notre formulaire de témoignage sécurisé ci-dessus. Nous utilisons un chiffrement de bout en bout et ne collectons jamais d'adresses IP ou d'informations identifiantes. Votre anonymat est notre priorité absolue.",
+    },
+    {
+      question: "Quel type de documentation acceptez-vous ?",
+      answer: "Nous acceptons les dossiers médicaux, les factures, la correspondance, les photos et toute autre documentation pertinente. Tous les témoignages sont examinés attentivement et stockés en toute sécurité.",
+    },
+    {
+      question: "Y a-t-il un soutien juridique disponible pour les victimes ?",
+      answer: "Nous pouvons vous mettre en contact avec des professionnels du droit spécialisés dans les cas de faute médicale. Contactez-nous via le formulaire sécurisé pour plus d'informations.",
+    },
+    {
+      question: "Comment savoir si ces informations sont vérifiées ?",
+      answer: "Tous les témoignages et preuves sont soigneusement examinés et recoupés. Nous travaillons avec des professionnels de la santé et des experts juridiques pour vérifier les allégations avant publication.",
+    },
+  ];
 
+  return (
+    <section className="py-20 bg-muted/50" id="faq">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-4xl font-bold mb-4">Questions Fréquentes</h2>
+          <p className="text-xl text-muted-foreground">
+            Tout ce que vous devez savoir sur le projet
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-strong rounded-lg px-6 border-none"
+                className="glass-card rounded-lg px-6 border-none"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
-                <AccordionTrigger className="text-left hover:text-primary hover:no-underline">
+                <AccordionTrigger className="text-left hover:text-primary hover:no-underline text-lg font-semibold">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
+                <AccordionContent className="text-muted-foreground leading-relaxed text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
