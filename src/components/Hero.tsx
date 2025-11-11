@@ -7,7 +7,7 @@ export const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const targetCount = 1247; // Nombre de soutiens
+  const targetCount = 474; // Nombre de soutiens
 
   useEffect(() => {
     // Animation du compteur
