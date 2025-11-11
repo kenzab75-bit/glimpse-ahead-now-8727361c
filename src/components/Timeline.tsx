@@ -14,6 +14,11 @@ export const Timeline = () => {
       number: 3,
       title: "L'impasse",
       description: "Les complications apparaissent, les promesses s'évaporent, et les victimes se retrouvent isolées, sans recours efficace face à une clinique solidement organisée."
+    },
+    {
+      number: 4,
+      title: "La vérité éclate",
+      description: "Les victimes se regroupent, les témoignages s'accumulent et la vérité commence à émerger. L'union fait la force contre ces pratiques frauduleuses."
     }
   ];
 

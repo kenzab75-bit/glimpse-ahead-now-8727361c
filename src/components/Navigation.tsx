@@ -46,7 +46,8 @@ export const Navigation = () => {
             {[
               { id: "accueil", label: "Accueil" },
               { id: "mon-histoire", label: "Mon histoire" },
-              { id: "s-informer", label: "S'informer" },
+              { id: "histoire", label: "Anatomie" },
+              { id: "temoignages", label: "Témoignages" },
               { id: "agir", label: "Agir" },
               { id: "contact", label: "Contact" }
             ].map((item) => (
@@ -77,7 +78,8 @@ export const Navigation = () => {
             {[
               { id: "accueil", label: "Accueil" },
               { id: "mon-histoire", label: "Mon histoire" },
-              { id: "s-informer", label: "S'informer" },
+              { id: "histoire", label: "Anatomie" },
+              { id: "temoignages", label: "Témoignages" },
               { id: "agir", label: "Agir" },
               { id: "contact", label: "Contact" }
             ].map((item) => (
