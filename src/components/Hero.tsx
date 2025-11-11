@@ -65,7 +65,7 @@ export const Hero = () => {
         {/* Main Title */}
         <h1 className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none" data-aos="fade-up" data-aos-delay="600">
           <span className="block text-foreground">LemaClinic</span>
-          <span className="block text-primary relative font-handwriting">
+          <span className="block text-primary relative">
             {['T', 'r', 'u', 't', 'h'].map((letter, index) => (
               <span
                 key={index}
