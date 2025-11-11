@@ -99,6 +99,7 @@ export const Navigation = () => {
               onMouseLeave={() => setIsInformerDropdownOpen(false)}
             >
               <button
+                onClick={() => scrollToSection("histoire")}
                 className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
                          transition-all duration-300 ease-out
                          hover:text-foreground
