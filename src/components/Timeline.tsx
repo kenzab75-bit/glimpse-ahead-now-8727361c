@@ -74,7 +74,7 @@ export const Timeline = () => {
     {
       number: 2,
       title: "Le piège",
-      description: "Une fois sur place, les diagnostics explosent, les traitements s'enchaînent, les prix flambent. Toute contestation se heurte à une pression psychologique et financière.",
+      description: "Une fois sur place, vous vous retrouvez pris au piège, entièrement dépendants de la clinique, qui exploite cette position de force pour accélérer les procédures. Les consentements sont signés dans la précipitation, sous pression psychologique et logistique. Refuser devient impensable, au risque de perdre les sommes versées et le séjour déjà engagé.",
       details: [
         "Découverte de 'problèmes urgents' non mentionnés dans le devis initial",
         "Pression intense pour accepter des traitements supplémentaires immédiats",
