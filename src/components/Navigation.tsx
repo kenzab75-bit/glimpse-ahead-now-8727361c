@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isInformerDropdownOpen, setIsInformerDropdownOpen] = useState(false);
+  const [isTemoignagesDropdownOpen, setIsTemoignagesDropdownOpen] = useState(false);
   const [isMobileInformerOpen, setIsMobileInformerOpen] = useState(false);
+  const [isMobileTemoignagesOpen, setIsMobileTemoignagesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +23,10 @@ export const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
+      setIsInformerDropdownOpen(false);
+      setIsTemoignagesDropdownOpen(false);
+      setIsMobileInformerOpen(false);
+      setIsMobileTemoignagesOpen(false);
     }
   };
 
@@ -89,8 +95,8 @@ export const Navigation = () => {
             {/* S'informer avec dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
+              onMouseEnter={() => setIsInformerDropdownOpen(true)}
+              onMouseLeave={() => setIsInformerDropdownOpen(false)}
             >
               <button
                 className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
@@ -107,21 +113,21 @@ export const Navigation = () => {
                          flex items-center gap-1"
               >
                 S'informer
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isInformerDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {/* Dropdown menu */}
-              {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in">
+              {isInformerDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
                   <button
                     onClick={() => scrollToSection("histoire")}
-                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.03] transition-all duration-300"
+                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Anatomie de l'affaire
                   </button>
                   <button
                     onClick={() => scrollToSection("vos-droits")}
-                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.03] transition-all duration-300"
+                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Vos droits
                   </button>
@@ -132,8 +138,8 @@ export const Navigation = () => {
             {/* Témoignages avec dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
+              onMouseEnter={() => setIsTemoignagesDropdownOpen(true)}
+              onMouseLeave={() => setIsTemoignagesDropdownOpen(false)}
             >
               <button
                 className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
@@ -150,21 +156,21 @@ export const Navigation = () => {
                          flex items-center gap-1"
               >
                 Témoignages
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isTemoignagesDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {/* Dropdown menu */}
-              {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in">
+              {isTemoignagesDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
                   <button
                     onClick={() => scrollToSection("temoignages")}
-                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.03] transition-all duration-300"
+                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Voir les témoignages
                   </button>
                   <button
                     onClick={() => scrollToSection("agir")}
-                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.03] transition-all duration-300"
+                    className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Agir
                   </button>
@@ -272,32 +278,43 @@ export const Navigation = () => {
                   </button>
                 </div>
               )}
+              
+              {/* Témoignages with sub-menu */}
               <button
-                onClick={() => scrollToSection("temoignages")}
+                onClick={() => setIsMobileTemoignagesOpen(!isMobileTemoignagesOpen)}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium
                          text-muted-foreground/90 hover:text-foreground
                          hover:bg-white/[0.03] transition-all duration-300
-                         border border-transparent hover:border-white/5"
+                         border border-transparent hover:border-white/5 flex items-center justify-between"
                 style={{
                   animationDelay: '150ms',
                   animation: 'fade-in 0.3s ease-out forwards'
                 }}
               >
                 Témoignages
+                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isMobileTemoignagesOpen ? 'rotate-180' : ''}`} />
               </button>
-              <button
-                onClick={() => scrollToSection("agir")}
-                className="block w-full text-left px-4 py-3 pl-8 rounded-xl text-[15px] font-medium
-                         text-muted-foreground/80 hover:text-foreground
-                         hover:bg-white/[0.03] transition-all duration-300
-                         border border-transparent hover:border-white/5"
-                style={{
-                  animationDelay: '200ms',
-                  animation: 'fade-in 0.3s ease-out forwards'
-                }}
-              >
-                → Agir
-              </button>
+              
+              {isMobileTemoignagesOpen && (
+                <div className="ml-4 space-y-1 animate-fade-in">
+                  <button
+                    onClick={() => scrollToSection("temoignages")}
+                    className="block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium
+                             text-muted-foreground/80 hover:text-foreground
+                             hover:bg-white/[0.03] transition-all duration-300"
+                  >
+                    → Voir les témoignages
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("agir")}
+                    className="block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium
+                             text-muted-foreground/80 hover:text-foreground
+                             hover:bg-white/[0.03] transition-all duration-300"
+                  >
+                    → Agir
+                  </button>
+                </div>
+              )}
               <button
                 onClick={() => scrollToSection("contact")}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-semibold
