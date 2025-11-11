@@ -65,7 +65,7 @@ export const Timeline = () => {
         "Partenariats avec des influenceurs pour promouvoir la clinique"
       ],
       sources: [
-        { label: "Témoignage patient #12", info: "Devis initial à 3500€ passé sur place à 6100€" },
+        { label: "Témoignage patient #12", info: "Devis initial de 3500€ pour 6 couronnes" },
         { label: "Capture écran Facebook", info: "Publicité sponsorisée janvier 2024" },
         { label: "Conversation WhatsApp", info: "Échanges avant le départ" }
       ]
