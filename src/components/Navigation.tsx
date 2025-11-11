@@ -9,16 +9,6 @@ export const Navigation = () => {
   const [isTemoignagesDropdownOpen, setIsTemoignagesDropdownOpen] = useState(false);
   const [isMobileInformerOpen, setIsMobileInformerOpen] = useState(false);
   const [isMobileTemoignagesOpen, setIsMobileTemoignagesOpen] = useState(false);
-  const [showLogoParticles, setShowLogoParticles] = useState(false);
-
-  // Générer des particules aléatoires
-  const logoParticles = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: (Math.random() - 0.5) * 80,
-    y: (Math.random() - 0.5) * 80,
-    delay: Math.random() * 400,
-    duration: 1000 + Math.random() * 500,
-  }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,31 +43,12 @@ export const Navigation = () => {
           {/* Logo - Modern Design avec effet premium */}
           <button
             onClick={() => scrollToSection("hero")}
-            onMouseEnter={() => setShowLogoParticles(true)}
-            onMouseLeave={() => setShowLogoParticles(false)}
             className="flex items-center gap-3 group relative px-3 py-2 rounded-xl transition-all duration-500 hover:bg-gradient-to-br hover:from-white/[0.03] hover:to-white/[0.01] hover:backdrop-blur-sm"
           >
             {/* Icône de balance avec conteneur glassmorphism */}
             <div className="relative">
               {/* Glow effect derrière l'icône */}
               <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Particules lumineuses */}
-              {showLogoParticles && logoParticles.map((particle) => (
-                <div
-                  key={particle.id}
-                  className="absolute w-1.5 h-1.5 rounded-full bg-primary pointer-events-none"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    animation: `particle ${particle.duration}ms ease-out infinite`,
-                    animationDelay: `${particle.delay}ms`,
-                    boxShadow: '0 0 8px rgba(220, 38, 38, 0.8), 0 0 12px rgba(220, 38, 38, 0.6)',
-                    '--particle-x': `${particle.x}px`,
-                    '--particle-y': `${particle.y}px`,
-                  } as React.CSSProperties}
-                />
-              ))}
               
               {/* Conteneur glassmorphism pour l'icône */}
               <div className="relative glass-strong rounded-lg p-2 border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]">
