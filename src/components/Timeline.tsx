@@ -91,7 +91,7 @@ export const Timeline = () => {
     {
       number: 3,
       title: "L'acte destructeur",
-      description: "Une fois installées dans le fauteuil, vous découvrez des pratiques expéditives où le profit prime sur la santé. Les soins sont réalisés sans véritable diagnostic ni respect des protocoles médicaux. Des dents saines sont taillées inutilement, provoquant douleurs, infections, fractures et atteintes irréversibles à votre intégrité bucco-dentaire.",
+      description: "Une fois installées dans le fauteuil, vous découvrez des pratiques expéditives où le profit prime sur la santé. Les soins sont réalisés sans respect des protocoles médicaux. Des dents saines sont taillées inutilement, provoquant douleurs, infections, fractures et atteintes irréversibles à votre intégrité bucco-dentaire.",
       details: [
         "Complications post-opératoires graves : infections, rejets d'implants, douleurs chroniques",
         "Absence totale de suivi médical après le retour en Europe",
