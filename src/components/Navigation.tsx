@@ -49,10 +49,10 @@ export const Navigation = () => {
               <AlertTriangle className="h-7 w-7 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]" />
             </div>
             <div className="flex items-baseline space-x-0.5">
-              <span className="text-xl font-semibold tracking-tight text-foreground/95 group-hover:text-foreground transition-all duration-300">
+              <span className="text-xl font-black tracking-tight text-foreground/95 group-hover:text-foreground transition-all duration-300">
                 LemaClinic
               </span>
-              <span className="text-xl font-bold tracking-tight text-primary group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.4)] transition-all duration-300">
+              <span className="text-xl font-black tracking-tight text-primary group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.4)] transition-all duration-300">
                 Truth
               </span>
             </div>
