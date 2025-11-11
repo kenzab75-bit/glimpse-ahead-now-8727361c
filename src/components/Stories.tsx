@@ -56,7 +56,7 @@ export const Stories = () => {
       className="py-20 relative overflow-hidden" 
       id="temoignages"
       style={{
-        background: 'linear-gradient(135deg, #181818 0%, #1E1E1E 50%, #181818 100%)',
+        background: 'linear-gradient(135deg, #242424 0%, #2A2A2A 50%, #242424 100%)',
       }}
     >
       {/* Effets discrets premium */}
