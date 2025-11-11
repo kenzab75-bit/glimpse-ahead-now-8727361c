@@ -83,17 +83,30 @@ export const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col lg:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="1000">
-          <PremiumButton
-            href="#mon-histoire"
-            variant="primary"
-            size="lg"
-            icon={<Shield className="h-6 w-6" />}
-          >
-            Découvrir mon histoire
-          </PremiumButton>
-          
-          <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="1000">
+          {/* Compteur de soutiens */}
+          <div className="glass-premium px-8 py-4 rounded-full flex items-center gap-3 mb-2">
+            <div className="flex items-center gap-2">
+              <Heart className="h-5 w-5 text-[#E53935] animate-pulse" />
+              <span className="text-3xl font-bold text-foreground tabular-nums">
+                {supportCount.toLocaleString('fr-FR')}
+              </span>
+            </div>
+            <span className="text-base text-muted-foreground font-medium">
+              personnes soutiennent cette cause
+            </span>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
+            <PremiumButton
+              href="#mon-histoire"
+              variant="primary"
+              size="lg"
+              icon={<Shield className="h-6 w-6" />}
+            >
+              Découvrir mon histoire
+            </PremiumButton>
+            
             <PremiumButton
               variant="secondary"
               size="lg"
@@ -101,19 +114,6 @@ export const Hero = () => {
             >
               Soutenir le projet
             </PremiumButton>
-            
-            {/* Compteur de soutiens */}
-            <div className="glass-premium px-6 py-3 rounded-full flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <Heart className="h-5 w-5 text-[#E53935] animate-pulse" />
-                <span className="text-2xl font-bold text-foreground tabular-nums">
-                  {supportCount.toLocaleString('fr-FR')}
-                </span>
-              </div>
-              <span className="text-sm text-muted-foreground font-medium">
-                personnes soutiennent cette cause
-              </span>
-            </div>
           </div>
         </div>
 
