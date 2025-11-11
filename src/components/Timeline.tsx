@@ -158,12 +158,19 @@ export const Timeline = () => {
               transition: 'transform 0.1s ease-out, opacity 0.1s ease-out'
             }}
           >
-            <h2 className="text-4xl lg:text-6xl font-black text-foreground mb-8">
-              Une mécanique bien étudiée — Anatomie d&apos;une dérive médicale
-            </h2>
+            <div className="space-y-4 mb-8">
+              <h2 className="text-5xl lg:text-7xl font-black leading-tight">
+                <span className="block text-foreground mb-2">
+                  La Machine
+                </span>
+                <span className="block bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+                  à Broyer les Patients
+                </span>
+              </h2>
+            </div>
             <div className="w-32 h-1 bg-gradient-to-r from-primary to-primary/40 mx-auto mb-8 rounded-full"></div>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Découvrez comment un système bien rodé a transformé la confiance des patients en instrument de profit.
+              Découvrez l&apos;anatomie d&apos;un système industriel conçu pour transformer la confiance en profits.
             </p>
           </div>
 
