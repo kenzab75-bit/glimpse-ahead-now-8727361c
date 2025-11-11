@@ -40,21 +40,33 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-8 py-5">
         <div className="flex justify-between items-center">
-          {/* Logo - Format avec icône de balance */}
+          {/* Logo - Modern Design avec effet premium */}
           <button
             onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-3 group relative px-4 py-2 rounded-lg hover:bg-white/[0.02] transition-all duration-300"
+            className="flex items-center gap-3 group relative px-3 py-2 rounded-xl transition-all duration-500 hover:bg-gradient-to-br hover:from-white/[0.03] hover:to-white/[0.01] hover:backdrop-blur-sm"
           >
+            {/* Icône de balance avec conteneur glassmorphism */}
             <div className="relative">
-              <Scale className="h-8 w-8 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(220,38,38,0.6)]" />
+              {/* Glow effect derrière l'icône */}
+              <div className="absolute inset-0 bg-primary/20 rounded-lg blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Conteneur glassmorphism pour l'icône */}
+              <div className="relative glass-strong rounded-lg p-2 border border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+                <Scale className="h-6 w-6 text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-[5deg]" strokeWidth={2.5} />
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <span className="text-2xl font-black tracking-tight text-foreground group-hover:text-foreground transition-all duration-300">
+            
+            {/* Texte du logo */}
+            <div className="flex items-center gap-1 relative">
+              <span className="text-2xl font-black tracking-tight text-foreground transition-all duration-300 group-hover:text-foreground/95">
                 LemaClinic
               </span>
-              <span className="text-2xl font-black tracking-tight text-primary group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.5)] transition-all duration-300">
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent group-hover:drop-shadow-[0_0_12px_rgba(220,38,38,0.6)] transition-all duration-300">
                 Truth
               </span>
+              
+              {/* Underline effect */}
+              <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
             </div>
           </button>
 
