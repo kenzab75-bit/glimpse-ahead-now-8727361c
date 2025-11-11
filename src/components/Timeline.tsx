@@ -170,7 +170,7 @@ export const Timeline = () => {
             </div>
             <div className="w-32 h-1 bg-gradient-to-r from-primary to-primary/40 mx-auto mb-8 rounded-full"></div>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Découvrez comment un système bien rodé a transformé la confiance des patients en instrument de profit.
+              Découvrez comment un système bien rodé transforme la confiance des patients en instrument de profit.
             </p>
           </div>
 
