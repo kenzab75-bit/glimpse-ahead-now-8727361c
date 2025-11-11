@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export const Hero = () => {
   const [supportCount, setSupportCount] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const targetCount = 1247; // Nombre de soutiens
 
   useEffect(() => {
@@ -25,6 +26,20 @@ export const Hero = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calcul des offsets parallaxe
+  const titleParallaxY = scrollY * 0.3;
+  const titleScale = Math.max(1 - scrollY * 0.0003, 0.85);
+  const titleOpacity = Math.max(1 - scrollY * 0.002, 0);
 
   return (
     <section
@@ -63,7 +78,16 @@ export const Hero = () => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none" data-aos="fade-up" data-aos-delay="600">
+        <h1 
+          className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none" 
+          data-aos="fade-up" 
+          data-aos-delay="600"
+          style={{
+            transform: `translateY(${titleParallaxY}px) scale(${titleScale})`,
+            opacity: titleOpacity,
+            transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+          }}
+        >
           <span className="block text-foreground">LemaClinic</span>
           <span className="block text-primary relative">
             {['T', 'r', 'u', 't', 'h'].map((letter, index) => (
@@ -83,7 +107,16 @@ export const Hero = () => {
         </h1>
 
         {/* Slogan */}
-        <p className="text-3xl lg:text-4xl xl:text-5xl mb-12 font-light text-primary" data-aos="fade-up" data-aos-delay="900">
+        <p 
+          className="text-3xl lg:text-4xl xl:text-5xl mb-12 font-light text-primary" 
+          data-aos="fade-up" 
+          data-aos-delay="900"
+          style={{
+            transform: `translateY(${titleParallaxY * 0.5}px)`,
+            opacity: titleOpacity,
+            transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+          }}
+        >
           La vérité éclaire toujours
         </p>
 
