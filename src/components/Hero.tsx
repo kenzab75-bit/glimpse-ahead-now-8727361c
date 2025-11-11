@@ -73,12 +73,12 @@ export const Hero = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         {/* Breaking News Banner */}
-        <div className="glass-strong rounded-xl p-4 mb-8 max-w-4xl mx-auto" data-aos="fade-down">
+        <div className="glass-premium backdrop-blur-2xl bg-white/[0.08] border-2 border-white/20 rounded-2xl p-6 mb-8 max-w-4xl mx-auto shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_0_rgba(229,57,53,0.3)] transition-all duration-500" data-aos="fade-down">
           <div className="flex items-center justify-center space-x-3 flex-wrap">
-            <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold font-mono uppercase tracking-wider">
+            <span className="bg-gradient-to-r from-[#E53935] to-[#C62828] text-primary-foreground px-4 py-2 rounded-full text-sm font-bold font-mono uppercase tracking-wider shadow-[0_0_20px_rgba(229,57,53,0.5)]">
               ALERTE
             </span>
-            <p className="text-primary font-medium text-lg">
+            <p className="text-primary font-semibold text-lg">
               Révélations exclusives sur les pratiques de la clinique LEMA DENTAL à Istanbul
             </p>
           </div>
