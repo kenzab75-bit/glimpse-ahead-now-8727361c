@@ -1,4 +1,5 @@
 import { Shield, Heart } from "lucide-react";
+import { PremiumButton } from "@/components/ui/premium-button";
 
 export const Hero = () => {
   return (
@@ -59,17 +60,21 @@ export const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col lg:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="1000">
-          <a
+          <PremiumButton
             href="#mon-histoire"
-            className="bg-primary text-primary-foreground px-12 py-6 text-xl font-bold rounded-xl min-w-[300px] transition-all duration-500 hover:scale-105 hover:shadow-glow inline-flex items-center justify-center"
+            variant="primary"
+            size="lg"
+            icon={<Shield className="h-6 w-6" />}
           >
-            <Shield className="mr-3 h-6 w-6" />
             Découvrir mon histoire
-          </a>
-          <button className="glass-strong border-2 border-border hover:border-primary/60 px-12 py-6 text-xl font-bold rounded-xl text-foreground min-w-[300px] transition-all duration-500 hover:scale-105 inline-flex items-center justify-center">
-            <Heart className="mr-3 h-6 w-6" />
+          </PremiumButton>
+          <PremiumButton
+            variant="secondary"
+            size="lg"
+            icon={<Heart className="h-6 w-6" />}
+          >
             Soutenir le projet
-          </button>
+          </PremiumButton>
         </div>
 
         {/* Scroll Indicator */}

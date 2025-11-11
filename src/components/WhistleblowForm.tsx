@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Shield, Lock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { PremiumButton } from "@/components/ui/premium-button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,15 +8,22 @@ import { useToast } from "@/hooks/use-toast";
 
 export const WhistleblowForm = () => {
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     toast({
       title: "Témoignage envoyé",
       description: "Votre témoignage a été envoyé de manière anonyme et sécurisée.",
     });
     setMessage("");
+    setIsSubmitting(false);
   };
 
   return (
@@ -50,10 +57,17 @@ export const WhistleblowForm = () => {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full" size="lg">
-                <Lock className="mr-2 h-5 w-5" />
-                Envoyer anonymement
-              </Button>
+              <PremiumButton 
+                type="submit" 
+                variant="primary"
+                size="default"
+                loading={isSubmitting}
+                icon={<Lock className="h-5 w-5" />}
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Envoi en cours..." : "Envoyer anonymement"}
+              </PremiumButton>
             </form>
           </CardContent>
         </Card>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { PremiumButton } from "@/components/ui/premium-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,10 +11,16 @@ export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     toast({
       title: "Message envoyé",
       description: "Nous vous répondrons dès que possible.",
@@ -22,6 +28,7 @@ export const Contact = () => {
     setName("");
     setEmail("");
     setMessage("");
+    setIsSubmitting(false);
   };
 
   return (
@@ -73,10 +80,17 @@ export const Contact = () => {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full" size="lg">
-                <Mail className="mr-2 h-5 w-5" />
-                Envoyer le message
-              </Button>
+              <PremiumButton 
+                type="submit" 
+                variant="primary"
+                size="default"
+                loading={isSubmitting}
+                icon={<Mail className="h-5 w-5" />}
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+              </PremiumButton>
             </form>
           </CardContent>
         </Card>
