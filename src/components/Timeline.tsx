@@ -13,10 +13,26 @@ export const Timeline = () => {
   const [selectedStep, setSelectedStep] = useState<TimelineStep | null>(null);
   const [scrollY, setScrollY] = useState(0);
   const [visibleSteps, setVisibleSteps] = useState<number[]>([]);
+  const [titleProgress, setTitleProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
+      
+      // Calculer la progression du titre basée sur sa position dans le viewport
+      const section = document.getElementById('histoire');
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Le titre commence à apparaître quand la section entre dans le viewport
+        // et disparaît progressivement quand on scroll
+        if (rect.top < windowHeight && rect.top > -windowHeight) {
+          // Progress de 0 à 1 basé sur la position dans le viewport
+          const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight * 1.5)));
+          setTitleProgress(progress);
+        }
+      }
       
       // Detect which steps are in viewport
       const stepElements = document.querySelectorAll('[data-timeline-step]');
@@ -111,6 +127,11 @@ export const Timeline = () => {
   ];
 
   const parallaxOffset = scrollY * 0.1;
+  
+  // Effets progressifs pour le titre
+  const titleScale = Math.max(0.85, 1 - titleProgress * 0.15);
+  const titleOpacity = Math.max(0.3, 1 - titleProgress * 0.7);
+  const titleTranslateY = titleProgress * 100;
 
   return (
     <>
@@ -132,12 +153,13 @@ export const Timeline = () => {
           <div 
             className="text-center mb-20"
             style={{ 
-              transform: `translateY(${parallaxOffset * -0.3}px)`,
-              transition: 'transform 0.1s ease-out'
+              transform: `translateY(-${titleTranslateY}px) scale(${titleScale})`,
+              opacity: titleOpacity,
+              transition: 'transform 0.1s ease-out, opacity 0.1s ease-out'
             }}
           >
             <h2 className="text-4xl lg:text-6xl font-black text-foreground mb-8">
-              Une mécanique bien étudiée — Anatomie d'une dérive médicale
+              Une mécanique bien étudiée — Anatomie d&apos;une dérive médicale
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-primary to-primary/40 mx-auto mb-8 rounded-full"></div>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
