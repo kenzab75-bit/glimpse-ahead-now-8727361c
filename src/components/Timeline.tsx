@@ -77,7 +77,7 @@ export const Timeline = () => {
       details: [
         "Examen initial bâclé, expédié en moins de dix minutes",
         "Traitement prévu avant le départ modifié sur place, au profit de soins beaucoup plus coûteux et invasifs, sans justification médicale réelle ni transparente",
-        "Multiplication des actes : meulage, dévitalisations, couronnes, non prévues",
+        "Multiplication des actes : meulage, dévitalisations, couronnes, non prévus",
         "Inflation des prix : facture finale 2 à 3 fois supérieure au devis",
         "Isolation du patient : pression pour payer rapidement"
       ],
