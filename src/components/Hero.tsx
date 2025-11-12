@@ -72,33 +72,15 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        {/* Breaking News Banner - Modernized */}
-        <div className="relative max-w-4xl mx-auto mb-8 group" data-aos="fade-down">
-          {/* Animated border gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl opacity-75 blur-sm group-hover:blur-md transition-all duration-500 animate-pulse"></div>
-          
-          {/* Main content */}
-          <div className="relative glass-premium rounded-2xl p-6 backdrop-blur-xl border border-primary/20">
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              {/* Alert Badge with glow effect */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary rounded-full blur-lg opacity-60 animate-pulse"></div>
-                <span className="relative bg-gradient-to-r from-primary to-accent text-primary-foreground px-5 py-2 rounded-full text-sm font-black font-mono uppercase tracking-widest shadow-lg shadow-primary/50 flex items-center gap-2">
-                  <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-primary-foreground opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-foreground"></span>
-                  ALERTE
-                </span>
-              </div>
-              
-              {/* Text with gradient */}
-              <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary font-bold text-lg lg:text-xl animate-shimmer bg-[length:200%_auto]">
-                Révélations exclusives sur les pratiques de la clinique LEMA DENTAL à Istanbul
-              </p>
-            </div>
-            
-            {/* Decorative corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary/50 rounded-tl-2xl"></div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary/50 rounded-br-2xl"></div>
+        {/* Breaking News Banner */}
+        <div className="glass-strong rounded-xl p-4 mb-8 max-w-4xl mx-auto" data-aos="fade-down">
+          <div className="flex items-center justify-center space-x-3 flex-wrap">
+            <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold font-mono uppercase tracking-wider">
+              ALERTE
+            </span>
+            <p className="text-primary font-medium text-lg">
+              Révélations exclusives sur les pratiques de la clinique LEMA DENTAL à Istanbul
+            </p>
           </div>
         </div>
 

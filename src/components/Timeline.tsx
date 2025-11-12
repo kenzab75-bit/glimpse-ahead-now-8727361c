@@ -73,7 +73,7 @@ export const Timeline = () => {
     {
       number: 2,
       title: "Le piège",
-      description: "Une fois sur place, le piège se referme, vous dépendez de la clinique, qui exploite cette position. Les consentements sont signés dans la précipitation, sous pression psychologique et logistique. Refuser devient impensable, au risque de perdre les sommes versées et le séjour déjà engagé.",
+      description: "Une fois sur place, vous êtes pris au piège, dépendants de la clinique, qui exploite cette position pour accélérer les procédures. Les consentements sont signés dans la précipitation, sous pression psychologique et logistique. Refuser devient impensable, au risque de perdre les sommes versées et le séjour déjà engagé.",
       details: [
         "Découverte de 'problèmes urgents' non mentionnés dans le devis initial",
         "Pression intense pour accepter des traitements supplémentaires immédiats",
