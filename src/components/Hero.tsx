@@ -86,7 +86,7 @@ export const Hero = () => {
 
         {/* Slogan */}
         <p 
-          className="text-2xl lg:text-3xl xl:text-4xl mb-12 font-light text-primary" 
+          className="text-2xl lg:text-3xl xl:text-4xl mb-12 font-light text-primary font-playfair" 
           data-aos="fade-up" 
           data-aos-delay="900"
           style={{

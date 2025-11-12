@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         handwriting: ['Shadows Into Light', 'cursive'],
+        playfair: ['Playfair Display', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
