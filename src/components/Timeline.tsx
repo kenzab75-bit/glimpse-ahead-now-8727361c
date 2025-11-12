@@ -75,11 +75,11 @@ export const Timeline = () => {
       title: "Le piège",
       description: "Une fois sur place, vous vous retrouvez pris au piège, entièrement dépendants de la clinique, qui exploite cette position de force pour accélérer les procédures. Les consentements sont signés dans la précipitation, sous pression psychologique et logistique. Refuser devient impensable, au risque de perdre les sommes versées et le séjour déjà engagé.",
       details: [
-        "Découverte de 'problèmes urgents' non mentionnés dans le devis initial",
-        "Pression intense pour accepter des traitements supplémentaires immédiats",
-        "Multiplication des actes : extraction, implants, greffes osseuses non prévues",
+        "Examen initial bâclé, expédié en moins de dix minutes",
+        "Traitement prévu avant le départ modifié sur place, au profit de soins beaucoup plus coûteux et invasifs, sans justification médicale réelle ni transparente",
+        "Multiplication des actes : meulage, dévitalisations, couronnes, non prévues",
         "Inflation des prix : facture finale 2 à 3 fois supérieure au devis",
-        "Isolation du patient : téléphone confisqué, pression pour payer rapidement"
+        "Isolation du patient : pression pour payer rapidement"
       ],
       sources: [
         { label: "Témoignage patient #8", info: "Devis passé de 4000€ à 11500€" },
