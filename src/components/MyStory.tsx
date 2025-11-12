@@ -23,16 +23,16 @@ export const MyStory = () => {
                 <h3 className="text-2xl font-bold ml-4 text-foreground">Qui suis-je ?</h3>
               </div>
               <div className="space-y-2">
-                <p className="text-foreground leading-relaxed text-xl font-medium">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   Je suis une patiente qui a fait confiance à la clinique <strong className="text-primary font-bold">Lema Dental</strong> à Istanbul.
                 </p>
-                <p className="text-foreground leading-relaxed text-xl font-medium">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   Comme beaucoup, j'ai cru aux promesses d'un sourire parfait, à des soins modernes et à une équipe qualifiée.
                 </p>
-                <p className="text-foreground leading-relaxed text-xl font-medium">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   Mais derrière cette façade séduisante, j'ai découvert une tout autre réalité : celle d'une expérience marquée par la douleur, les manquements et le mépris.
                 </p>
-                <p className="text-foreground leading-relaxed text-xl font-bold">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   Je suis aujourd'hui une <strong className="text-primary">victime</strong>, mais aussi une <strong className="text-primary">voix</strong> — celle de toutes les personnes qui ont été trompées ou réduites au silence.
                 </p>
               </div>
