@@ -76,13 +76,7 @@ export const PatientRights = () => {
       title: "Besoin d'aide juridique ?",
       description: "Si vous estimez que vos droits ont été bafoués, contactez-nous. Nous pouvons vous orienter vers un avocat spécialisé exerçant à Paris et à Istanbul, capable d'évaluer votre dossier et de vous accompagner.",
       showContactButton: true,
-      details: [
-        "Consultation avec un avocat spécialisé en droit médical",
-        "Contact avec des associations de défense des patients",
-        "Aide pour constituer votre dossier",
-        "Accompagnement dans vos démarches juridiques",
-        "Support pour témoigner et protéger d'autres patients"
-      ]
+      details: []
     }
   ];
 
@@ -123,34 +117,37 @@ export const PatientRights = () => {
                   <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#E53935] transition-colors duration-300">
                     {right.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-8">
                     {right.description}
                   </p>
-                  {right.showContactButton && (
+                  {right.showContactButton ? (
                     <a
                       href="#contact"
-                      className="inline-flex items-center px-6 py-3 bg-[#E53935] text-white rounded-lg font-semibold hover:bg-[#E53935]/90 hover:shadow-[0_0_20px_rgba(229,57,53,0.4)] transition-all duration-300 mb-6"
+                      className="inline-flex items-center px-6 py-3 bg-[#E53935] text-white rounded-lg font-semibold hover:bg-[#E53935]/90 hover:shadow-[0_0_20px_rgba(229,57,53,0.4)] transition-all duration-300 w-full justify-center"
                     >
                       Nous contacter
                     </a>
+                  ) : (
+                    <>
+                      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6"></div>
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide mb-3">
+                          Points clés
+                        </h4>
+                        <ul className="space-y-2">
+                          {right.details.map((detail, idx) => (
+                            <li
+                              key={idx}
+                              className="flex items-start text-sm text-muted-foreground"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#E53935] mt-2 mr-3 flex-shrink-0"></span>
+                              <span className="leading-relaxed">{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
                   )}
-                </div>
-
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide mb-3">
-                    Points clés
-                  </h4>
-                  <ul className="space-y-2">
-                    {right.details.map((detail, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start text-sm text-muted-foreground"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#E53935] mt-2 mr-3 flex-shrink-0"></span>
-                        <span className="leading-relaxed">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </CardContent>
             </Card>
