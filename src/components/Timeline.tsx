@@ -91,12 +91,11 @@ export const Timeline = () => {
       title: "L'impasse",
       description: "Une fois entre les mains du chirurgien, vous découvrez des pratiques expéditives où le profit prime sur la santé, sans le moindre scrupule à bafouer le code de déontologie médicale au nom de l'argent.",
       details: [
-        "Complications post-opératoires graves : infections, rejets d'implants, douleurs chroniques",
+        "Complications post-opératoires graves : douleurs chroniques, pulpite",
         "Absence totale de suivi médical après le retour en Europe",
-        "Impossibilité de joindre la clinique ou réponses évasives",
-        "Refus de remboursement ou de prise en charge des complications",
-        "Coûts de réparation en Europe dépassant largement les économies initiales",
-        "Dossiers médicaux incomplets ou falsifiés rendant les recours difficiles"
+        "Impossibilité de joindre la clinique ou réponses évasives ; isolement",
+        "Refus de prise en charge des complications",
+        "Coûts de réparation en Europe dépassant largement les économies initiales"
       ],
       sources: [
         { label: "Rapport médical", info: "Dentiste français - avril 2024" },
