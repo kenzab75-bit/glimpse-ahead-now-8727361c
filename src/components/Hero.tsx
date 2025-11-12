@@ -160,7 +160,8 @@ export const Hero = () => {
         <div className="max-w-6xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="1200">
           <div className="glass-strong rounded-2xl p-8 lg:p-12 hover:scale-105 transition-transform duration-500">
             <p className="text-2xl lg:text-3xl xl:text-4xl font-bold leading-relaxed text-foreground">
-              Révéler la vérité, défendre les victimes, face aux abus de Lema Dental Clinic en Turquie.
+              Victime de la clinique Lema Dental à Istanbul, j'ai décidé de témoigner publiquement.
+              Ce site a pour objectif d'informer, d'alerter et de protéger d'autres patients contre des pratiques abusives.
             </p>
           </div>
         </div>
