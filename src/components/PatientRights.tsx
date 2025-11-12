@@ -50,7 +50,7 @@ export const PatientRights = () => {
     {
       icon: <Lock className="w-8 h-8 text-[#E53935]" />,
       title: "Protection des données",
-      description: "Les informations médicales sont strictement confidentielles et protégées par le secret médical. Le patient a un droit absolu à la confidentialité de son dossier médical.",
+      description: "Les informations médicales sont strictement confidentielles et protégées par le secret médical.",
       details: [
         "Confidentialité absolue du dossier médical",
         "Droit d'accès à ses données personnelles",
@@ -62,7 +62,7 @@ export const PatientRights = () => {
     {
       icon: <AlertCircle className="w-8 h-8 text-[#E53935]" />,
       title: "Signalement des abus",
-      description: "Tout patient victime de pratiques abusives peut et doit signaler ces faits aux autorités compétentes. Ce signalement permet de protéger d'autres patients potentiels.",
+      description: "Tout patient victime de pratiques abusives peut et doit signaler ces faits aux autorités compétentes.",
       details: [
         "Signalement aux autorités sanitaires",
         "Alerte auprès des associations de patients",
@@ -109,28 +109,33 @@ export const PatientRights = () => {
               className="glass-card hover:scale-105 transition-all duration-500 group animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardContent className="p-8">
-                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#E53935]/10 mb-4 group-hover:shadow-[0_0_20px_rgba(229,57,53,0.3)] transition-shadow duration-300">
-                    {right.icon}
+              <CardContent className="p-8 h-full flex flex-col">
+                <div className="flex-1 flex flex-col">
+                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#E53935]/10 mb-4 group-hover:shadow-[0_0_20px_rgba(229,57,53,0.3)] transition-shadow duration-300">
+                      {right.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#E53935] transition-colors duration-300">
+                      {right.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {right.description}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#E53935] transition-colors duration-300">
-                    {right.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-8">
-                    {right.description}
-                  </p>
+
                   {right.showContactButton ? (
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center px-6 py-3 bg-[#E53935] text-white rounded-lg font-semibold hover:bg-[#E53935]/90 hover:shadow-[0_0_20px_rgba(229,57,53,0.4)] transition-all duration-300 w-full justify-center"
-                    >
-                      Nous contacter
-                    </a>
+                    <div className="mt-auto pt-4">
+                      <a
+                        href="#contact"
+                        className="inline-flex items-center px-6 py-3 bg-[#E53935] text-white rounded-lg font-semibold hover:bg-[#E53935]/90 hover:shadow-[0_0_20px_rgba(229,57,53,0.4)] transition-all duration-300 w-full justify-center"
+                      >
+                        Nous contacter
+                      </a>
+                    </div>
                   ) : (
                     <>
                       <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6"></div>
-                      <div className="space-y-3">
+                      <div className="space-y-3 flex-1">
                         <h4 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide mb-3">
                           Points clés
                         </h4>
