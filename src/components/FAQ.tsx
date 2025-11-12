@@ -19,10 +19,6 @@ export const FAQ = () => {
       question: "Y a-t-il un soutien juridique disponible pour les victimes ?",
       answer: "Nous pouvons vous mettre en contact avec des professionnels du droit spécialisés dans les cas de faute médicale. Contactez-nous via le formulaire sécurisé pour plus d'informations.",
     },
-    {
-      question: "Comment savoir si ces informations sont vérifiées ?",
-      answer: "Tous les témoignages et preuves sont soigneusement examinés et recoupés. Nous travaillons avec des professionnels de la santé et des experts juridiques pour vérifier les allégations avant publication.",
-    },
   ];
 
   return (
