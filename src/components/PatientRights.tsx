@@ -6,6 +6,7 @@ interface Right {
   title: string;
   description: string;
   details: string[];
+  showContactButton?: boolean;
 }
 
 export const PatientRights = () => {
@@ -73,7 +74,8 @@ export const PatientRights = () => {
     {
       icon: <HelpCircle className="w-8 h-8 text-[#E53935]" />,
       title: "Besoin d'aide juridique ?",
-      description: "Si vous pensez que vos droits ont été bafoués, n'hésitez pas à consulter un avocat spécialisé en droit médical ou à contacter une association de défense des patients.",
+      description: "Si vous estimez que vos droits ont été bafoués, contactez-nous. Nous pouvons vous orienter vers un avocat spécialisé exerçant à Paris et à Istanbul, capable d'évaluer votre dossier et de vous accompagner.",
+      showContactButton: true,
       details: [
         "Consultation avec un avocat spécialisé en droit médical",
         "Contact avec des associations de défense des patients",
@@ -124,6 +126,14 @@ export const PatientRights = () => {
                   <p className="text-muted-foreground leading-relaxed mb-6">
                     {right.description}
                   </p>
+                  {right.showContactButton && (
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center px-6 py-3 bg-[#E53935] text-white rounded-lg font-semibold hover:bg-[#E53935]/90 hover:shadow-[0_0_20px_rgba(229,57,53,0.4)] transition-all duration-300 mb-6"
+                    >
+                      Nous contacter
+                    </a>
+                  )}
                 </div>
 
                 <div className="space-y-3">
