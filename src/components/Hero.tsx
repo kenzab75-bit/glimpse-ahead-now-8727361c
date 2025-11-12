@@ -86,12 +86,25 @@ export const Hero = () => {
 
         {/* Alert Icon */}
         <div className="flex justify-center mb-12" data-aos="zoom-in" data-aos-delay="300">
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
-            <div className="p-8 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-full relative z-10 glass-strong">
-              <svg className="h-20 w-20 text-primary-foreground drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+          <div className="relative group">
+            {/* Animated glow rings */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-primary to-primary/50 blur-xl opacity-60 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping"></div>
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/20 to-transparent animate-ping" style={{ animationDuration: '3s' }}></div>
+            
+            {/* Main icon container with premium glass effect */}
+            <div className="relative z-10 p-8 rounded-full glass-premium backdrop-blur-xl border border-primary/30 bg-gradient-to-br from-primary/90 via-primary to-primary/80 group-hover:scale-105 transition-transform duration-300">
+              {/* Inner glow */}
+              <div className="absolute inset-2 rounded-full bg-gradient-to-br from-primary-foreground/10 to-transparent animate-pulse"></div>
+              
+              {/* Icon with enhanced effects */}
+              <svg className="h-20 w-20 text-primary-foreground relative z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" className="animate-pulse"></path>
               </svg>
+              
+              {/* Decorative corner accents */}
+              <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary-foreground/40 rounded-tl-lg"></div>
+              <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-primary-foreground/40 rounded-br-lg"></div>
             </div>
           </div>
         </div>
