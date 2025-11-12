@@ -3,29 +3,7 @@ import { PremiumButton } from "@/components/ui/premium-button";
 import { useState, useEffect } from "react";
 
 export const Hero = () => {
-  const [supportCount, setSupportCount] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-  const targetCount = 474; // Nombre de soutiens
-
-  useEffect(() => {
-    // Animation du compteur
-    const duration = 2000; // 2 secondes
-    const steps = 50;
-    const increment = targetCount / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= targetCount) {
-        setSupportCount(targetCount);
-        clearInterval(timer);
-      } else {
-        setSupportCount(Math.floor(current));
-      }
-    }, duration / steps);
-
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -130,21 +108,7 @@ export const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="1000">
-          {/* Compteur de soutiens */}
-          <div className="glass-premium px-8 py-4 rounded-full flex items-center gap-3 mb-2">
-            <div className="flex items-center gap-2">
-              <Heart className="h-5 w-5 text-[#E53935] animate-pulse" />
-              <span className="text-3xl font-bold text-foreground tabular-nums">
-                {supportCount.toLocaleString('fr-FR')}
-              </span>
-            </div>
-            <span className="text-base text-muted-foreground font-medium">
-              personnes soutiennent cette cause
-            </span>
-          </div>
-
-          <div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col lg:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="1000">
             <PremiumButton
               href="#mon-histoire"
               variant="primary"
@@ -161,7 +125,6 @@ export const Hero = () => {
             >
               Soutenir le projet
             </PremiumButton>
-          </div>
         </div>
 
         {/* Scroll Indicator */}
