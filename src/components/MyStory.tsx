@@ -51,17 +51,16 @@ export const MyStory = () => {
               </div>
               <div className="space-y-2">
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  J'ai créé LemaClinic Truth pour révéler la vérité et prévenir d'autres victimes.
+                  J'ai créé ce site pour révéler la vérité et prévenir d'autres victimes.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   Ce site n'est pas une vengeance : c'est une alerte citoyenne.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  Un espace de témoignage, d'enquête et de partage d'informations, construit avec rigueur et preuves à l'appui.
+                  Un espace de témoignage, d'enquête et de partage d'informations, construit avec rigueur.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  Mon objectif est simple : que plus personne ne se laisse séduire par des promesses mensongères,
-                  et que chaque patient retrouve son <strong className="text-primary">droit fondamental</strong> à la transparence, au respect et à la dignité.
+                  Mon objectif est simple : que plus personne ne se laisse séduire par des promesses mensongères, et que chaque patient retrouve son <strong className="text-primary">droit fondamental</strong> à la transparence, au respect et à la dignité.
                 </p>
               </div>
             </CardContent>
