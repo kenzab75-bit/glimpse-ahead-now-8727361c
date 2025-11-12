@@ -82,7 +82,6 @@ export const Timeline = () => {
         "Isolation du patient : pression pour payer rapidement"
       ],
       sources: [
-        { label: "Témoignage patient #8", info: "Devis passé de 3900€ à 6200€" },
         { label: "Factures comparées", info: "Documents avant/après traitement" },
         { label: "Export de conversations WhatsApp", info: "" }
       ]
