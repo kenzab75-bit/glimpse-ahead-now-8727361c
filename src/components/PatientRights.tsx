@@ -1,4 +1,4 @@
-import { Shield, Scale, FileText, AlertCircle, Lock } from "lucide-react";
+import { Shield, Scale, FileText, AlertCircle, Lock, HelpCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface Right {
@@ -69,6 +69,18 @@ export const PatientRights = () => {
         "Témoignage pour protéger d'autres patients",
         "Participation aux enquêtes officielles"
       ]
+    },
+    {
+      icon: <HelpCircle className="w-8 h-8 text-[#E53935]" />,
+      title: "Besoin d'aide juridique ?",
+      description: "Si vous pensez que vos droits ont été bafoués, n'hésitez pas à consulter un avocat spécialisé en droit médical ou à contacter une association de défense des patients.",
+      details: [
+        "Consultation avec un avocat spécialisé en droit médical",
+        "Contact avec des associations de défense des patients",
+        "Aide pour constituer votre dossier",
+        "Accompagnement dans vos démarches juridiques",
+        "Support pour témoigner et protéger d'autres patients"
+      ]
     }
   ];
 
@@ -133,32 +145,6 @@ export const PatientRights = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Call to action */}
-        <div className="mt-16 text-center">
-          <div className="glass-premium p-8 rounded-2xl max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Besoin d'aide juridique ?
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Si vous pensez que vos droits ont été bafoués, n'hésitez pas à consulter un avocat spécialisé en droit médical ou à contacter une association de défense des patients.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-6 py-3 bg-[#E53935] text-white rounded-lg font-semibold hover:bg-[#E53935]/90 hover:shadow-[0_0_20px_rgba(229,57,53,0.4)] transition-all duration-300"
-              >
-                Nous contacter
-              </a>
-              <a
-                href="#temoignages"
-                className="inline-flex items-center px-6 py-3 glass text-foreground rounded-lg font-semibold hover:bg-white/10 transition-all duration-300"
-              >
-                Lire les témoignages
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
