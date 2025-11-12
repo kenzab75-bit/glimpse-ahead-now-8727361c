@@ -98,8 +98,8 @@ export const Timeline = () => {
         "Coûts de réparation en Europe dépassant largement les économies initiales"
       ],
       sources: [
-        { label: "Rapport médical", info: "Dentiste français - avril 2024" },
-        { label: "Témoignage patient #15", info: "5 implants à refaire, 8000€ de frais" },
+        { label: "Rapports et examens médicaux", info: "Dentistes français 2025" },
+        { label: "Témoignage patient", info: "" },
         { label: "Échanges emails", info: "Tentatives de contact restées sans réponse" }
       ]
     },
