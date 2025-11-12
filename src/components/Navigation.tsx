@@ -106,7 +106,7 @@ export const Navigation = () => {
             </button>
             {/* S'informer avec dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setIsInformerDropdownOpen(true)}
               onMouseLeave={() => setIsInformerDropdownOpen(false)}
             >
@@ -129,9 +129,12 @@ export const Navigation = () => {
                 <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isInformerDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
+              {/* Zone invisible pour garder le dropdown ouvert */}
+              <div className="absolute top-full left-0 right-0 h-2"></div>
+              
               {/* Dropdown menu */}
               {isInformerDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
+                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
                   <button
                     onClick={() => scrollToSection("histoire")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
@@ -150,7 +153,7 @@ export const Navigation = () => {
             
             {/* Témoignages avec dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setIsTemoignagesDropdownOpen(true)}
               onMouseLeave={() => setIsTemoignagesDropdownOpen(false)}
             >
@@ -172,9 +175,12 @@ export const Navigation = () => {
                 <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isTemoignagesDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
+              {/* Zone invisible pour garder le dropdown ouvert */}
+              <div className="absolute top-full left-0 right-0 h-2"></div>
+              
               {/* Dropdown menu */}
               {isTemoignagesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
+                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
                   <button
                     onClick={() => scrollToSection("temoignages")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
