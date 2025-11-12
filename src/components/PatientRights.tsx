@@ -13,7 +13,7 @@ export const PatientRights = () => {
     {
       icon: <FileText className="w-8 h-8 text-[#E53935]" />,
       title: "Droit à l'information",
-      description: "Le patient a le droit d'être informé de manière claire et complète sur son état de santé et les traitements proposés.",
+      description: "Le patient a le droit d'être informé de manière claire, loyale et complète sur son état de santé et sur les traitements proposés, dans le respect des règles déontologiques et du consentement éclairé.",
       details: [
         "Diagnostic complet et compréhensible",
         "Explication détaillée des traitements et alternatives",
