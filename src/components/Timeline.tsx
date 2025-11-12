@@ -106,7 +106,7 @@ export const Timeline = () => {
     {
       number: 4,
       title: "La vérité éclate",
-      description: "Les victimes se regroupent, les témoignages s'accumulent et la vérité commence à émerger. L'union fait la force contre ces pratiques frauduleuses.",
+      description: "Faire émerger la vérité par la justice. Parce que le silence protège les fautes, et que seule la vérité libère.",
       details: [
         "Création de groupes d'entraide et de témoignages de victimes",
         "Publication de preuves concrètes : factures, photos, rapports médicaux",
