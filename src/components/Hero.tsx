@@ -45,7 +45,7 @@ export const Hero = () => {
 
         {/* Main Title */}
         <h1 
-          className="text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-none relative" 
+          className="text-5xl lg:text-6xl xl:text-7xl font-black mb-8 leading-none relative" 
           data-aos="fade-up" 
           data-aos-delay="600"
           style={{
@@ -74,7 +74,7 @@ export const Hero = () => {
 
         {/* Slogan */}
         <p 
-          className="text-3xl lg:text-4xl xl:text-5xl mb-12 font-light text-primary" 
+          className="text-xl lg:text-2xl xl:text-3xl mb-12 font-light text-primary" 
           data-aos="fade-up" 
           data-aos-delay="900"
           style={{
@@ -89,7 +89,7 @@ export const Hero = () => {
         {/* Mission Statement */}
         <div className="max-w-6xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="1200">
           <div className="glass-strong rounded-2xl p-8 lg:p-12 hover:scale-105 transition-transform duration-500">
-            <p className="text-2xl lg:text-3xl xl:text-4xl font-bold leading-relaxed text-foreground">
+            <p className="text-xl lg:text-2xl xl:text-3xl font-bold leading-relaxed text-foreground">
               Révéler la vérité, défendre les victimes, face aux abus de Lema Dental Clinic en Turquie.
             </p>
           </div>
