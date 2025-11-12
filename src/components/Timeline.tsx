@@ -59,11 +59,10 @@ export const Timeline = () => {
       title: "L'appât commercial",
       description: "Lema Dental Clinic vous appâte avec des devis attractifs et un discours rassurant. Sous couvert de soins \"haut de gamme\", tout est pensé pour instaurer la confiance et provoquer votre départ vers Istanbul.",
       details: [
-        "Publicités agressives sur les réseaux sociaux ciblant les patients français, belges et suisses",
-        "Promesses de prix 60-70% moins chers qu'en Europe avec des 'garanties' attractives",
+        "Publicités agressives sur les réseaux sociaux ciblant les patients français, Européens et internationaux",
+        "Promesses de prix 60-70% moins chers avec des 'garanties' attractives (Hôtel 5 étoiles, transfert gratuit  etc)",
         "Communication ultra-réactive et rassurante via WhatsApp et réseaux sociaux",
-        "Faux avis positifs et témoignages arrangés pour créer une image de confiance",
-        "Partenariats avec des influenceurs pour promouvoir la clinique"
+        "Partenariats avec des influenceurs ou stars internationales pour promouvoir la clinique"
       ],
       sources: [
         { label: "Témoignage patient #12", info: "Devis initial de 3500€ pour 6 couronnes" },
