@@ -41,6 +41,7 @@ export const PatientRights = () => {
       details: [
         "Réclamation auprès de l'Ordre des médecins turc (Tabipler Birliği)",
         "Saisine de la justice turque ou européenne",
+        "Recours possible dans le pays d'origine",
         "Soutien par des associations de victimes de soins à l'étranger",
         "Droit à une indemnisation équitable"
       ]
