@@ -14,34 +14,16 @@ export const Stories = () => {
       category: "Complications" as Category,
     },
     {
-      quote: "Ils ont promis des soins de classe mondiale mais ont fourni des soins médiocres. Mes documents médicaux ont été falsifiés.",
-      author: "Jean D.",
-      location: "Belgique",
-      category: "Fraude" as Category,
-    },
-    {
       quote: "La clinique a menti sur mon diagnostic pour justifier des procédures inutiles qui m'ont laissé dans un état pire.",
       author: "Marie S.",
       location: "Suisse",
       category: "Fraude" as Category,
     },
     {
-      quote: "Personnel non qualifié, suivi post-opératoire inexistant. J'ai dû consulter ailleurs pour réparer leurs erreurs.",
-      author: "Thomas L.",
-      location: "France",
-      category: "Négligence" as Category,
-    },
-    {
       quote: "Facturations abusives, frais cachés non mentionnés. Le montant final était le double du devis initial.",
       author: "Sophie M.",
       location: "Luxembourg",
       category: "Facturation" as Category,
-    },
-    {
-      quote: "Infections nosocomiales graves suite à l'intervention. Aucune responsabilité assumée par la clinique.",
-      author: "Pierre R.",
-      location: "Suisse",
-      category: "Complications" as Category,
     },
   ];
 
