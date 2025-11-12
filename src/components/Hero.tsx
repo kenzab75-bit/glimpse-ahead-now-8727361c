@@ -1,6 +1,7 @@
 import { Shield, Heart } from "lucide-react";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { useState, useEffect } from "react";
+import alertBanner from "@/assets/alert-banner.png";
 
 export const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -32,15 +33,12 @@ export const Hero = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         {/* Breaking News Banner */}
-        <div className="glass-strong rounded-xl p-4 mb-8 max-w-4xl mx-auto" data-aos="fade-down">
-          <div className="flex items-center justify-center space-x-3 flex-wrap">
-            <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold font-mono uppercase tracking-wider">
-              ALERTE
-            </span>
-            <p className="text-primary font-medium text-lg">
-              Révélations exclusives sur les pratiques de la clinique LEMA DENTAL à Istanbul
-            </p>
-          </div>
+        <div className="mb-8 max-w-4xl mx-auto" data-aos="fade-down">
+          <img 
+            src={alertBanner} 
+            alt="Alerte - Révélations exclusives sur les pratiques de la clinique LEMA" 
+            className="w-full h-auto rounded-xl"
+          />
         </div>
 
         {/* Alert Icon */}
