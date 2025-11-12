@@ -111,7 +111,7 @@ export const Timeline = () => {
         "Création de groupes d'entraide et de témoignages de victimes",
         "Publication de preuves concrètes : factures, photos, rapports médicaux",
         "Médiatisation croissante de l'affaire dans les médias européens",
-        "Plaintes collectives déposées auprès des autorités compétentes",
+        "Plaintes déposées auprès des autorités compétentes",
         "Mobilisation pour alerter les futurs patients et prévenir de nouveaux cas",
         "Demande d'enquête officielle sur les pratiques de la clinique"
       ],
