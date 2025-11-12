@@ -31,6 +31,18 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
+        {/* Breaking News Banner */}
+        <div className="glass-strong rounded-xl p-4 mb-8 max-w-4xl mx-auto" data-aos="fade-down">
+          <div className="flex items-center justify-center space-x-3 flex-wrap">
+            <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold font-mono uppercase tracking-wider">
+              ALERTE
+            </span>
+            <p className="text-primary font-medium text-lg">
+              Révélations exclusives sur les pratiques de la clinique LEMA DENTAL à Istanbul
+            </p>
+          </div>
+        </div>
+
         {/* Alert Icon */}
         <div className="flex justify-center mb-12" data-aos="zoom-in" data-aos-delay="300">
           <div className="relative">
