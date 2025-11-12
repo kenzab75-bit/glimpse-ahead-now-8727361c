@@ -89,7 +89,7 @@ export const Timeline = () => {
     {
       number: 3,
       title: "L'impasse",
-      description: "Une fois installés dans le fauteuil, vous découvrez des pratiques expéditives où le profit prime sur la santé. Les soins sont réalisés sans véritable diagnostic ni respect des protocoles médicaux. Des dents saines sont taillées inutilement, provoquant douleurs, infections, fractures et atteintes irréversibles à votre intégrité bucco-dentaire.",
+      description: "Une fois entre les mains du chirurgien, vous découvrez des pratiques expéditives où le profit prime sur la santé, sans le moindre scrupule à bafouer le code de déontologie médicale au nom de l'argent.",
       details: [
         "Complications post-opératoires graves : infections, rejets d'implants, douleurs chroniques",
         "Absence totale de suivi médical après le retour en Europe",
