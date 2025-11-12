@@ -23,7 +23,8 @@ export const MyStory = () => {
                 <h3 className="text-2xl font-bold ml-4 text-foreground">Qui suis-je ?</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Je suis une victime de la clinique Lema Dental. J'ai créé ce site pour exposer leurs pratiques et aider d'autres victimes.
+                Victime de la clinique Lema Dental à Istanbul, j'ai décidé de témoigner publiquement.
+                Ce site a pour objectif d'informer, d'alerter et de protéger d'autres patients contre des pratiques que je juge abusives.
               </p>
             </CardContent>
           </Card>
