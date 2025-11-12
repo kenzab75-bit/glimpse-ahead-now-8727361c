@@ -59,21 +59,22 @@ export const Timeline = () => {
       title: "L'appât commercial",
       description: "Lema Dental Clinic vous appâte avec des devis attractifs et un discours rassurant. Sous couvert de soins \"haut de gamme\", tout est pensé pour instaurer la confiance et provoquer votre départ vers Istanbul.",
       details: [
-        "Publicités agressives sur les réseaux sociaux ciblant les patients français et internationaux",
-        "Promesses de prix 60-70% moins chers qu'en Europe avec des 'garanties' attractives (hôtel 5 étoiles, transfert gratuit...)",
+        "Publicités agressives sur les réseaux sociaux ciblant les patients français, belges et suisses",
+        "Promesses de prix 60-70% moins chers qu'en Europe avec des 'garanties' attractives",
         "Communication ultra-réactive et rassurante via WhatsApp et réseaux sociaux",
+        "Faux avis positifs et témoignages arrangés pour créer une image de confiance",
         "Partenariats avec des influenceurs pour promouvoir la clinique"
       ],
       sources: [
-        { label: "Témoignage patient #12", info: "Devis initial de 3500€ pour 20 dents soignées" },
-        { label: "Capture écran Instagram/Facebook", info: "Publicité sponsorisée janvier 2024" },
+        { label: "Témoignage patient #12", info: "Devis initial de 3500€ pour 6 couronnes" },
+        { label: "Capture écran Facebook", info: "Publicité sponsorisée janvier 2024" },
         { label: "Conversation WhatsApp", info: "Échanges avant le départ" }
       ]
     },
     {
       number: 2,
       title: "Le piège",
-      description: "Une fois sur place, vous êtes pris au piège, dépendants de la clinique, qui exploite cette position pour accélérer les procédures. Les consentements sont signés dans la précipitation, sous pression psychologique et logistique. Refuser devient impensable, au risque de perdre les sommes versées et le séjour déjà engagé.",
+      description: "Une fois sur place, les diagnostics explosent, les traitements s'enchaînent, les prix flambent. Toute contestation se heurte à une pression psychologique et financière.",
       details: [
         "Découverte de 'problèmes urgents' non mentionnés dans le devis initial",
         "Pression intense pour accepter des traitements supplémentaires immédiats",
@@ -89,8 +90,8 @@ export const Timeline = () => {
     },
     {
       number: 3,
-      title: "L'acte destructeur",
-      description: "Une fois installées dans le fauteuil, vous découvrez des pratiques expéditives où le profit prime sur la santé. Les soins sont réalisés sans respect des protocoles médicaux. Des dents saines sont taillées inutilement, provoquant douleurs, infections, fractures et atteintes irréversibles à votre intégrité bucco-dentaire.",
+      title: "L'impasse",
+      description: "Les complications apparaissent, les promesses s'évaporent, et les victimes se retrouvent isolées, sans recours efficace face à une clinique solidement organisée.",
       details: [
         "Complications post-opératoires graves : infections, rejets d'implants, douleurs chroniques",
         "Absence totale de suivi médical après le retour en Europe",
@@ -169,7 +170,7 @@ export const Timeline = () => {
             </div>
             <div className="w-32 h-1 bg-gradient-to-r from-primary to-primary/40 mx-auto mb-8 rounded-full"></div>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Découvrez comment un système bien rodé transforme la confiance des patients en instrument de profit.
+              Découvrez comment un système bien rodé a transformé la confiance des patients en instrument de profit.
             </p>
           </div>
 
