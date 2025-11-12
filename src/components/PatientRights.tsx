@@ -37,7 +37,7 @@ export const PatientRights = () => {
     {
       icon: <Scale className="w-8 h-8 text-[#E53935]" />,
       title: "Droit aux recours",
-      description: "Même à l'étranger, le patient dispose de recours pour faire valoir ses droits. Les soins réalisés en Turquie peuvent faire l'objet de démarches auprès d'instances locales ou internationales selon la gravité du dommage.",
+      description: "Même à l'étranger, un patient n'est pas sans droits. En cas de soins fautifs réalisés en Turquie, il existe plusieurs recours possibles pour obtenir réparation et justice.",
       details: [
         "Réclamation auprès de l'Ordre des médecins turc (Tabipler Birliği)",
         "Saisine de la justice turque ou européenne",
