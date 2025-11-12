@@ -49,7 +49,7 @@ export const PatientRights = () => {
     {
       icon: <Lock className="w-8 h-8 text-[#E53935]" />,
       title: "Protection des données",
-      description: "Les informations médicales sont strictement confidentielles et protégées par le secret médical.",
+      description: "Les informations médicales sont strictement confidentielles et protégées par le secret médical. Le patient a un droit absolu à la confidentialité de son dossier médical.",
       details: [
         "Confidentialité absolue du dossier médical",
         "Droit d'accès à ses données personnelles",
@@ -61,7 +61,7 @@ export const PatientRights = () => {
     {
       icon: <AlertCircle className="w-8 h-8 text-[#E53935]" />,
       title: "Signalement des abus",
-      description: "Tout patient victime de pratiques abusives peut et doit signaler ces faits aux autorités compétentes.",
+      description: "Tout patient victime de pratiques abusives peut et doit signaler ces faits aux autorités compétentes. Ce signalement permet de protéger d'autres patients potentiels.",
       details: [
         "Signalement aux autorités sanitaires",
         "Alerte auprès des associations de patients",
