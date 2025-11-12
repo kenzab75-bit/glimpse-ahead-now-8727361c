@@ -37,7 +37,7 @@ export const PatientRights = () => {
     {
       icon: <Scale className="w-8 h-8 text-[#E53935]" />,
       title: "Droit aux recours",
-      description: "En cas de préjudice, même à l'étranger, le patient dispose de recours pour faire valoir ses droits. Les soins réalisés en Turquie peuvent faire l'objet de démarches auprès d'instances locales ou internationales selon la gravité du dommage.",
+      description: "Même à l'étranger, le patient dispose de recours pour faire valoir ses droits. Les soins réalisés en Turquie peuvent faire l'objet de démarches auprès d'instances locales ou internationales selon la gravité du dommage.",
       details: [
         "Réclamation auprès de l'Ordre des médecins",
         "Saisine de la commission de conciliation",
