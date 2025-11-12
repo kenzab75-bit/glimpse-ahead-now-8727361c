@@ -89,7 +89,7 @@ export const Timeline = () => {
     {
       number: 3,
       title: "L'impasse",
-      description: "Une fois entre les mains du chirurgien, vous découvrez des pratiques expéditives où le profit prime sur la santé, sans le moindre scrupule à bafouer le code de déontologie médicale au nom de l'argent.",
+      description: "Une fois entre les mains du chirurgien, vous découvrez des pratiques expéditives où le profit prime sur la santé, sans le moindre scrupule à bafouer le code de déontologie médicale au nom de l'argent. Vous ne contrôlez plus rien...",
       details: [
         "Complications post-opératoires graves : douleurs chroniques, pulpite",
         "Absence totale de suivi médical après le retour en Europe",
