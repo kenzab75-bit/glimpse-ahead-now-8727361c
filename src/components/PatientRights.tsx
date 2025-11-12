@@ -1,4 +1,4 @@
-import { Shield, Scale, FileText, AlertCircle, Users, Lock } from "lucide-react";
+import { Shield, Scale, FileText, AlertCircle, Lock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface Right {
@@ -68,18 +68,6 @@ export const PatientRights = () => {
         "Dépôt de plainte pénale si nécessaire",
         "Témoignage pour protéger d'autres patients",
         "Participation aux enquêtes officielles"
-      ]
-    },
-    {
-      icon: <Users className="w-8 h-8 text-[#E53935]" />,
-      title: "Droits transfrontaliers",
-      description: "Les patients ayant recours à des soins à l'étranger bénéficient de protections spécifiques.",
-      details: [
-        "Directive européenne sur les soins transfrontaliers",
-        "Droit au remboursement partiel des soins",
-        "Recours possible dans le pays d'origine",
-        "Protection consulaire en cas de litige",
-        "Assistance juridique internationale"
       ]
     }
   ];
