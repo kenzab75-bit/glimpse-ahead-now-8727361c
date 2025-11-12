@@ -32,7 +32,7 @@ export const Hero = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         {/* Breaking News Banner */}
-        <div className="glass-strong rounded-xl p-4 mb-8 mt-4 max-w-4xl mx-auto" data-aos="fade-down">
+        <div className="glass-strong rounded-xl p-3 mb-8 mt-4 max-w-4xl mx-auto" data-aos="fade-down">
           <div className="flex items-center justify-center space-x-3 flex-wrap">
             <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold font-mono uppercase tracking-wider">
               ALERTE
