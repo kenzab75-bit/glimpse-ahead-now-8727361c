@@ -116,9 +116,8 @@ export const Timeline = () => {
         "Demande d'enquête officielle sur les pratiques de la clinique"
       ],
       sources: [
-        { label: "Groupe Facebook", info: "Plus de 200 témoignages recensés" },
-        { label: "Article Le Parisien", info: "Publication du 15 mars 2024" },
-        { label: "Plainte collective", info: "Dossier déposé en février 2024" }
+        { label: "Groupe Facebook", info: "Nombreux témoignages recensés" },
+        { label: "Plainte en cours de dépôt", info: "" }
       ]
     }
   ];
