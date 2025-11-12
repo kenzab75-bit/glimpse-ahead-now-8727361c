@@ -25,7 +25,7 @@ export const PatientRights = () => {
     {
       icon: <Shield className="w-8 h-8 text-[#E53935]" />,
       title: "Consentement éclairé",
-      description: "Aucun acte médical ne peut être pratiqué sans le consentement libre et éclairé du patient.",
+      description: "Aucun soin ne peut être réalisé sans le consentement libre et éclairé du patient, obtenu après une information complète, honnête et compréhensible sur les traitements proposés.",
       details: [
         "Droit de refuser ou d'interrompre un traitement",
         "Délai de réflexion avant acceptation",
