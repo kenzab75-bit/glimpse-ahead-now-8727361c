@@ -58,10 +58,10 @@ export const Navigation = () => {
             
             {/* Texte du logo */}
             <div className="flex items-center gap-1 relative">
-              <span className="text-2xl font-black tracking-tight text-foreground transition-all duration-300 group-hover:text-foreground/95 font-playfair">
+              <span className="text-2xl font-black tracking-tight text-foreground transition-all duration-300 group-hover:text-foreground/95">
                 LemaClinic
               </span>
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent group-hover:drop-shadow-[0_0_12px_rgba(220,38,38,0.6)] transition-all duration-300 font-playfair">
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent group-hover:drop-shadow-[0_0_12px_rgba(220,38,38,0.6)] transition-all duration-300">
                 Truth
               </span>
               
