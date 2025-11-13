@@ -1,49 +1,94 @@
-import { useState, useEffect } from "react";
+import { useState, MouseEvent, FocusEvent } from "react";
 import { Menu, X, Scale, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useMotionPreferences } from "@/context/MotionContext";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isInformerDropdownOpen, setIsInformerDropdownOpen] = useState(false);
   const [isTemoignagesDropdownOpen, setIsTemoignagesDropdownOpen] = useState(false);
   const [isMobileInformerOpen, setIsMobileInformerOpen] = useState(false);
   const [isMobileTemoignagesOpen, setIsMobileTemoignagesOpen] = useState(false);
+  const { y } = useScrollPosition();
+  const isScrolled = y > 20;
+  const { reducedMotion, preference, setPreference } = useMotionPreferences();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const closeMenus = () => {
+    setIsOpen(false);
+    setIsInformerDropdownOpen(false);
+    setIsTemoignagesDropdownOpen(false);
+    setIsMobileInformerOpen(false);
+    setIsMobileTemoignagesOpen(false);
+  };
 
-  const scrollToSection = (id: string) => {
+  const navigateTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
+      element.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+      closeMenus();
+    }
+  };
+
+  const handleNavigation = (
+    event: MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    event.preventDefault();
+    navigateTo(id);
+  };
+
+  const cycleMotionPreference = () => {
+    const nextPreference =
+      preference === "system"
+        ? "reduce"
+        : preference === "reduce"
+          ? "allow"
+          : "system";
+    setPreference(nextPreference);
+  };
+
+  const motionLabel = {
+    system: "Animations : système",
+    reduce: "Animations réduites",
+    allow: "Animations actives",
+  } as const;
+
+  const informerMenuId = "navigation-informer-menu";
+  const temoignagesMenuId = "navigation-temoignages-menu";
+  const mobileMenuId = "navigation-mobile-menu";
+  const mobileInformerMenuId = "navigation-mobile-informer";
+  const mobileTemoignagesMenuId = "navigation-mobile-temoignages";
+  const mobileToggleLabel = isOpen ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation";
+
+  const handleInformerBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       setIsInformerDropdownOpen(false);
+    }
+  };
+
+  const handleTemoignagesBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       setIsTemoignagesDropdownOpen(false);
-      setIsMobileInformerOpen(false);
-      setIsMobileTemoignagesOpen(false);
     }
   };
 
   return (
     <nav
+      aria-label="Navigation principale"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled 
-          ? "backdrop-blur-xl bg-background/80 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border-b border-white/5" 
+        isScrolled
+          ? "backdrop-blur-xl bg-background/80 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border-b border-white/5"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-8 py-5">
         <div className="flex justify-between items-center">
           {/* Logo - Modern Design avec effet premium */}
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-3 group relative px-3 py-2 rounded-xl transition-all duration-500 hover:bg-gradient-to-br hover:from-white/[0.03] hover:to-white/[0.01] hover:backdrop-blur-sm"
+          <a
+            href="#accueil"
+            onClick={(event) => handleNavigation(event, "accueil")}
+            className="flex items-center gap-3 group relative px-3 py-2 rounded-xl transition-all duration-500 hover:bg-gradient-to-br hover:from-white/[0.03] hover:to-white/[0.01] hover:backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             {/* Icône de balance avec conteneur glassmorphism */}
             <div className="relative">
@@ -68,13 +113,14 @@ export const Navigation = () => {
               {/* Underline effect */}
               <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
             </div>
-          </button>
+          </a>
 
           {/* Desktop Menu - Ultra premium */}
           <div className="hidden md:flex items-center space-x-1">
-            <button
-              onClick={() => scrollToSection("accueil")}
-              className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
+            <a
+              href="#accueil"
+              onClick={(event) => handleNavigation(event, "accueil")}
+              className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90
                        transition-all duration-300 ease-out
                        hover:text-foreground
                        after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
@@ -87,10 +133,11 @@ export const Navigation = () => {
                        hover:before:from-white/[0.03] hover:before:to-white/[0.01] hover:before:opacity-100"
             >
               Accueil
-            </button>
-            <button
-              onClick={() => scrollToSection("mon-histoire")}
-              className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
+            </a>
+            <a
+              href="#mon-histoire"
+              onClick={(event) => handleNavigation(event, "mon-histoire")}
+              className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90
                        transition-all duration-300 ease-out
                        hover:text-foreground
                        after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
@@ -103,16 +150,22 @@ export const Navigation = () => {
                        hover:before:from-white/[0.03] hover:before:to-white/[0.01] hover:before:opacity-100"
             >
               Mon histoire
-            </button>
+            </a>
             {/* S'informer avec dropdown */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setIsInformerDropdownOpen(true)}
               onMouseLeave={() => setIsInformerDropdownOpen(false)}
+              onFocus={() => setIsInformerDropdownOpen(true)}
+              onBlur={handleInformerBlur}
             >
               <button
-                onClick={() => scrollToSection("histoire")}
-                className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
+                type="button"
+                onClick={() => navigateTo("histoire")}
+                aria-haspopup="true"
+                aria-expanded={isInformerDropdownOpen}
+                aria-controls={informerMenuId}
+                className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90
                          transition-all duration-300 ease-out
                          hover:text-foreground
                          after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
@@ -134,31 +187,46 @@ export const Navigation = () => {
               
               {/* Dropdown menu */}
               {isInformerDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
-                  <button
-                    onClick={() => scrollToSection("histoire")}
+                <div
+                  id={informerMenuId}
+                  role="menu"
+                  className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]"
+                >
+                  <a
+                    href="#histoire"
+                    role="menuitem"
+                    onClick={(event) => handleNavigation(event, "histoire")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Le piège
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("vos-droits")}
+                  </a>
+                  <a
+                    href="#vos-droits"
+                    role="menuitem"
+                    onClick={(event) => handleNavigation(event, "vos-droits")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Vos droits
-                  </button>
+                  </a>
                 </div>
               )}
             </div>
             
             {/* Témoignages avec dropdown */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setIsTemoignagesDropdownOpen(true)}
               onMouseLeave={() => setIsTemoignagesDropdownOpen(false)}
+              onFocus={() => setIsTemoignagesDropdownOpen(true)}
+              onBlur={handleTemoignagesBlur}
             >
               <button
-                className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90 
+                type="button"
+                onClick={() => navigateTo("temoignages")}
+                aria-haspopup="true"
+                aria-expanded={isTemoignagesDropdownOpen}
+                aria-controls={temoignagesMenuId}
+                className="relative px-4 py-2 text-[15px] font-medium text-muted-foreground/90
                          transition-all duration-300 ease-out
                          hover:text-foreground
                          after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
@@ -180,26 +248,35 @@ export const Navigation = () => {
               
               {/* Dropdown menu */}
               {isTemoignagesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]">
-                  <button
-                    onClick={() => scrollToSection("temoignages")}
+                <div
+                  id={temoignagesMenuId}
+                  role="menu"
+                  className="absolute top-full left-0 mt-2 w-52 backdrop-blur-xl bg-background/95 rounded-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] overflow-hidden animate-fade-in z-[60]"
+                >
+                  <a
+                    href="#temoignages"
+                    role="menuitem"
+                    onClick={(event) => handleNavigation(event, "temoignages")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Voir les témoignages
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("agir")}
+                  </a>
+                  <a
+                    href="#agir"
+                    role="menuitem"
+                    onClick={(event) => handleNavigation(event, "agir")}
                     className="block w-full text-left px-4 py-3 text-[15px] font-medium text-muted-foreground/90 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
                   >
                     Agir
-                  </button>
+                  </a>
                 </div>
               )}
             </div>
 
             {/* Contact button - Plus visible */}
-            <button
-              onClick={() => scrollToSection("contact")}
+            <a
+              href="#contact"
+              onClick={(event) => handleNavigation(event, "contact")}
               className="relative px-5 py-2 ml-2 text-[15px] font-semibold
                        bg-primary/10 text-primary border border-primary/30
                        rounded-lg transition-all duration-300 ease-out
@@ -212,6 +289,14 @@ export const Navigation = () => {
                        hover:before:opacity-100"
             >
               Contact
+            </a>
+            <button
+              type="button"
+              onClick={cycleMotionPreference}
+              className="ml-2 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80 hover:text-foreground border border-white/10 rounded-lg transition-all duration-300 hover:border-white/40 hover:bg-white/[0.05]"
+              aria-label={`${motionLabel[preference]} – activer l'option suivante`}
+            >
+              {motionLabel[preference]}
             </button>
           </div>
 
@@ -221,6 +306,9 @@ export const Navigation = () => {
             size="icon"
             className="md:hidden hover:bg-white/5 transition-all duration-300"
             onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-controls={mobileMenuId}
+            aria-label={mobileToggleLabel}
           >
             {isOpen ? (
               <X className="h-5 w-5 transition-transform duration-300 rotate-90" />
@@ -232,10 +320,15 @@ export const Navigation = () => {
 
         {/* Mobile Menu - Premium glassmorphism */}
         {isOpen && (
-          <div className="md:hidden mt-6 space-y-1 animate-fade-in">
+          <div
+            id={mobileMenuId}
+            className="md:hidden mt-6 space-y-1 animate-fade-in"
+            aria-label="Navigation principale mobile"
+          >
             <div className="backdrop-blur-xl bg-white/[0.02] rounded-2xl border border-white/5 p-2 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
-              <button
-                onClick={() => scrollToSection("accueil")}
+              <a
+                href="#accueil"
+                onClick={(event) => handleNavigation(event, "accueil")}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium
                          text-muted-foreground/90 hover:text-foreground
                          hover:bg-white/[0.03] transition-all duration-300
@@ -246,9 +339,10 @@ export const Navigation = () => {
                 }}
               >
                 Accueil
-              </button>
-              <button
-                onClick={() => scrollToSection("mon-histoire")}
+              </a>
+              <a
+                href="#mon-histoire"
+                onClick={(event) => handleNavigation(event, "mon-histoire")}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium
                          text-muted-foreground/90 hover:text-foreground
                          hover:bg-white/[0.03] transition-all duration-300
@@ -259,11 +353,14 @@ export const Navigation = () => {
                 }}
               >
                 Mon histoire
-              </button>
+              </a>
               
               {/* S'informer with sub-menu */}
               <button
+                type="button"
                 onClick={() => setIsMobileInformerOpen(!isMobileInformerOpen)}
+                aria-expanded={isMobileInformerOpen}
+                aria-controls={mobileInformerMenuId}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium
                          text-muted-foreground/90 hover:text-foreground
                          hover:bg-white/[0.03] transition-all duration-300
@@ -278,29 +375,34 @@ export const Navigation = () => {
               </button>
               
               {isMobileInformerOpen && (
-                <div className="ml-4 space-y-1 animate-fade-in">
-                  <button
-                    onClick={() => scrollToSection("histoire")}
+                <div id={mobileInformerMenuId} className="ml-4 space-y-1 animate-fade-in">
+                  <a
+                    href="#histoire"
+                    onClick={(event) => handleNavigation(event, "histoire")}
                     className="block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium
                              text-muted-foreground/80 hover:text-foreground
                              hover:bg-white/[0.03] transition-all duration-300"
                   >
                     → Le piège
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("vos-droits")}
+                  </a>
+                  <a
+                    href="#vos-droits"
+                    onClick={(event) => handleNavigation(event, "vos-droits")}
                     className="block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium
                              text-muted-foreground/80 hover:text-foreground
                              hover:bg-white/[0.03] transition-all duration-300"
                   >
                     → Vos droits
-                  </button>
+                  </a>
                 </div>
               )}
               
               {/* Témoignages with sub-menu */}
               <button
+                type="button"
                 onClick={() => setIsMobileTemoignagesOpen(!isMobileTemoignagesOpen)}
+                aria-expanded={isMobileTemoignagesOpen}
+                aria-controls={mobileTemoignagesMenuId}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium
                          text-muted-foreground/90 hover:text-foreground
                          hover:bg-white/[0.03] transition-all duration-300
@@ -315,27 +417,30 @@ export const Navigation = () => {
               </button>
               
               {isMobileTemoignagesOpen && (
-                <div className="ml-4 space-y-1 animate-fade-in">
-                  <button
-                    onClick={() => scrollToSection("temoignages")}
+                <div id={mobileTemoignagesMenuId} className="ml-4 space-y-1 animate-fade-in">
+                  <a
+                    href="#temoignages"
+                    onClick={(event) => handleNavigation(event, "temoignages")}
                     className="block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium
                              text-muted-foreground/80 hover:text-foreground
                              hover:bg-white/[0.03] transition-all duration-300"
                   >
                     → Voir les témoignages
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("agir")}
+                  </a>
+                  <a
+                    href="#agir"
+                    onClick={(event) => handleNavigation(event, "agir")}
                     className="block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium
                              text-muted-foreground/80 hover:text-foreground
                              hover:bg-white/[0.03] transition-all duration-300"
                   >
                     → Agir
-                  </button>
+                  </a>
                 </div>
               )}
-              <button
-                onClick={() => scrollToSection("contact")}
+              <a
+                href="#contact"
+                onClick={(event) => handleNavigation(event, "contact")}
                 className="block w-full text-left px-4 py-3 rounded-xl text-[15px] font-semibold
                          bg-primary/10 text-primary border border-primary/30
                          hover:bg-primary hover:text-primary-foreground hover:border-primary
@@ -346,6 +451,25 @@ export const Navigation = () => {
                 }}
               >
                 Contact
+              </a>
+              <button
+                type="button"
+                onClick={() => {
+                  cycleMotionPreference();
+                  setTimeout(() => {
+                    if (typeof document !== "undefined") {
+                      document.getElementById(mobileMenuId)?.focus();
+                    }
+                  }, 0);
+                }}
+                className="w-full px-4 py-3 rounded-xl text-[14px] font-semibold text-muted-foreground/80 border border-white/10 hover:border-white/40 hover:text-foreground hover:bg-white/[0.05] transition-all duration-300"
+                style={{
+                  animationDelay: '300ms',
+                  animation: 'fade-in 0.3s ease-out forwards'
+                }}
+                aria-label={`${motionLabel[preference]} – activer l'option suivante`}
+              >
+                {motionLabel[preference]}
               </button>
             </div>
           </div>

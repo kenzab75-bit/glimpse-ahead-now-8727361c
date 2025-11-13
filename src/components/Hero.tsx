@@ -1,23 +1,18 @@
 import { Shield, Heart } from "lucide-react";
 import { PremiumButton } from "@/components/ui/premium-button";
-import { useState, useEffect } from "react";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useMotionPreferences } from "@/context/MotionContext";
 
 export const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const { y } = useScrollPosition();
+  const { reducedMotion } = useMotionPreferences();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const effectiveScrollY = reducedMotion ? 0 : y;
 
   // Calcul des offsets parallaxe
-  const titleParallaxY = scrollY * 0.3;
-  const titleScale = Math.max(1 - scrollY * 0.0003, 0.85);
-  const titleOpacity = Math.max(1 - scrollY * 0.002, 0);
+  const titleParallaxY = reducedMotion ? 0 : effectiveScrollY * 0.3;
+  const titleScale = reducedMotion ? 1 : Math.max(1 - effectiveScrollY * 0.0003, 0.85);
+  const titleOpacity = reducedMotion ? 1 : Math.max(1 - effectiveScrollY * 0.002, 0);
 
   return (
     <section
@@ -25,9 +20,17 @@ export const Hero = () => {
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-card relative overflow-hidden pt-20"
     >
       {/* Animated background effect */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] animate-pulse delay-1000"></div>
+      <div className="absolute inset-0 opacity-20" aria-hidden="true">
+        <div
+          className={`absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] ${
+            reducedMotion ? "" : "animate-pulse"
+          }`}
+        ></div>
+        <div
+          className={`absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-[120px] ${
+            reducedMotion ? "" : "animate-pulse delay-1000"
+          }`}
+        ></div>
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -45,8 +48,8 @@ export const Hero = () => {
 
         {/* Alert Icon */}
         <div className="flex justify-center mb-12" data-aos="zoom-in" data-aos-delay="300">
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
+          <div className="relative" aria-hidden="true">
+            <div className={`absolute inset-0 rounded-full bg-primary/20 ${reducedMotion ? "" : "animate-ping"}`}></div>
             <div className="p-8 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-full relative z-10 glass-strong">
               <svg className="h-20 w-20 text-primary-foreground drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
@@ -73,8 +76,8 @@ export const Hero = () => {
                 key={index}
                 className="inline-block opacity-0"
                 style={{
-                  animation: 'fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
-                  animationDelay: `${1200 + index * 150}ms`,
+                  animation: reducedMotion ? undefined : 'fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                  animationDelay: reducedMotion ? undefined : `${1200 + index * 150}ms`,
                   textShadow: '0 0 40px rgba(220, 38, 38, 0.6), 0 0 80px rgba(220, 38, 38, 0.3)',
                 }}
               >
@@ -128,9 +131,12 @@ export const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div
+          className={`absolute bottom-10 left-1/2 -translate-x-1/2 ${reducedMotion ? "" : "animate-bounce"}`}
+          aria-hidden="true"
+        >
           <div className="glass-strong w-8 h-12 border-2 border-border rounded-full flex justify-center p-2">
-            <div className="w-2 h-4 bg-primary rounded-full animate-pulse"></div>
+            <div className={`w-2 h-4 bg-primary rounded-full ${reducedMotion ? "" : "animate-pulse"}`}></div>
           </div>
           <p className="text-muted-foreground text-sm mt-2 font-mono text-center">SCROLL</p>
         </div>
