@@ -8,45 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark investigative theme */
-    --background: 0 0% 4%;
+    /* Dark investigative theme avec contrastes renforcés */
+    --background: 217 32% 7%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 7%;
+    --card: 217 30% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 7%;
+    --popover: 217 32% 9%;
     --popover-foreground: 0 0% 98%;
 
-    /* Alert red as primary - urgent/danger theme */
+    /* Rouge d'alerte conservé mais équilibré par un accent froid */
     --primary: 0 72% 51%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 219 28% 18%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 220 22% 20%;
+    --muted-foreground: 214 16% 74%;
 
-    --accent: 0 72% 51%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 82% 56%;
+    --accent-foreground: 210 100% 97%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 72% 51%;
+    --border: 220 18% 28%;
+    --input: 220 22% 24%;
+    --ring: 210 82% 56%;
 
     --radius: 0.75rem;
 
-    /* Glass morphism */
-    --glass-bg: 0 0% 100% / 0.03;
-    --glass-border: 0 0% 100% / 0.08;
-    
+    /* Glass morphism plus lisible */
+    --glass-bg: 210 40% 96% / 0.09;
+    --glass-border: 210 60% 94% / 0.16;
+
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(0 72% 51% / 0.3);
-    --shadow-intense: 0 0 80px hsl(0 72% 51% / 0.5);
+    --shadow-glow: 0 0 36px hsl(0 72% 51% / 0.24);
+    --shadow-intense: 0 28px 60px rgba(6, 12, 24, 0.55);
   }
 }
 
@@ -72,9 +72,10 @@ All colors MUST be HSL.
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(18, 32, 48, 0.55);
+    backdrop-filter: blur(22px) saturate(140%);
+    border: 1px solid rgba(144, 188, 255, 0.2);
+    box-shadow: 0 18px 40px rgba(8, 12, 20, 0.35);
   }
 
   .glass-premium {

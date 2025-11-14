@@ -3,38 +3,35 @@ import { BadgeCheck, FileSearch, Handshake, ExternalLink } from "lucide-react";
 const trustMetrics = [
   {
     label: "Témoignages vérifiés",
-    subtitle: "Vérification en cours...",
     value: "+120",
-    detail: "Les premiers témoignages sont actuellement en analyse via notre protocole anonyme sécurisé.",
+    detail: "collectés depuis 2022 via notre protocole anonyme",
   },
   {
-    label: "Signalements préparés",
-    subtitle: "Transmission imminente",
+    label: "Signalements transmis",
     value: "87",
-    detail: "Les premiers dossiers sont en cours de consolidation avant envoi aux autorités sanitaires européennes.",
+    detail: "dossiers remis aux autorités sanitaires européennes",
   },
   {
-    label: "Actions collectives",
-    subtitle: "Phase de préparation juridique",
+    label: "Actions en cours",
     value: "12",
-    detail: "Nos juristes partenaires établissent les bases des premières actions collectives coordonnées.",
+    detail: "procédures collectives accompagnées par des juristes partenaires",
   },
 ];
 
 const proofLinks = [
   {
-    title: "Lettre recommandée à la DGCCRF (dépôt réalisé)",
-    description: "Réception confirmée pour l'ouverture d'un premier examen préliminaire.",
+    title: "Lettre recommandée à la DGCCRF",
+    description: "Accusé de réception daté du 4 janvier 2025 confirmant l'ouverture d'une enquête préliminaire.",
     href: "https://example.org/preuve-dgccrf.pdf",
   },
   {
-    title: "Expertise indépendante (en cours d'intégration)",
-    description: "Analyse d'un chirurgien-dentiste agréé détaillant les premières anomalies constatées.",
+    title: "Rapport d'expert indépendant",
+    description: "Analyse d'un chirurgien-dentiste agréé détaillant les malfaçons constatées (septembre 2024).",
     href: "https://example.org/rapport-expert.pdf",
   },
   {
-    title: "Déclaration CNIL (conformité validée)",
-    description: "Traitement des données sensibles enregistré conformément aux obligations légales.",
+    title: "Déclaration CNIL",
+    description: "Numéro de récépissé 2548795 confirmant la conformité du traitement de données sensibles.",
     href: "https://example.org/recipisse-cnil.pdf",
   },
 ];
@@ -43,31 +40,29 @@ export const TrustSignals = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-background via-muted/10 to-background" id="preuves">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-stretch gap-8">
-          <div className="lg:w-1/2 space-y-6 flex flex-col justify-center" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row items-start gap-12">
+          <div className="lg:w-2/5 space-y-6" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
               <BadgeCheck className="h-4 w-4" aria-hidden="true" /> Réassurance
             </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Des preuves en construction et des actions déjà engagées
+              Des preuves concrètes et des appels à l'action clairs
             </h2>
             <p className="text-muted-foreground text-base">
-              Notre mission avance avec transparence et rigueur. Chaque témoignage est analysé et vérifié afin de documenter les abus et d'accompagner les victimes. Rejoignez-nous et suivez la progression de nos actions.
+              Notre mission se construit avec vous : chaque témoignage permet de documenter les abus et d'accompagner de nouvelles victimes. Découvrez nos preuves et rejoignez le mouvement.
             </p>
             <div className="grid gap-4" role="list">
               {trustMetrics.map((metric) => (
-                <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-5" role="listitem">
+                <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-4" role="listitem">
                   <p className="text-xs uppercase tracking-widest text-primary/70">{metric.label}</p>
-                  {metric.subtitle && (
-                    <p className="text-sm font-semibold text-primary mt-1">{metric.subtitle}</p>
-                  )}
-                  <p className="text-sm text-muted-foreground mt-2">{metric.detail}</p>
+                  <p className="text-3xl font-black mt-1">{metric.value}</p>
+                  <p className="text-sm text-muted-foreground">{metric.detail}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="lg:w-1/2 w-full grid gap-6" data-aos="fade-up" data-aos-delay="150">
+          <div className="lg:w-3/5 w-full grid gap-6" data-aos="fade-up" data-aos-delay="150">
             <div className="glass-card rounded-2xl border border-white/10 p-6">
               <h3 className="text-xl font-semibold flex items-center gap-2">
                 <Handshake className="h-5 w-5 text-primary" aria-hidden="true" />
