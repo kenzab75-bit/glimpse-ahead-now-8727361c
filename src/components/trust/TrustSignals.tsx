@@ -46,10 +46,10 @@ export const TrustSignals = () => {
               <BadgeCheck className="h-4 w-4" aria-hidden="true" /> Réassurance
             </div>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Des preuves concrètes et des appels à l'action clairs
+              Des preuves en construction et des actions déjà engagées
             </h2>
             <p className="text-muted-foreground text-base">
-              Notre mission se construit avec vous : chaque témoignage permet de documenter les abus et d'accompagner de nouvelles victimes. Découvrez nos preuves et rejoignez le mouvement.
+              Notre mission avance avec transparence et rigueur. Chaque témoignage est analysé et vérifié afin de documenter les abus et d'accompagner les victimes. Rejoignez-nous et suivez la progression de nos actions.
             </p>
             <div className="grid gap-4" role="list">
               {trustMetrics.map((metric) => (
