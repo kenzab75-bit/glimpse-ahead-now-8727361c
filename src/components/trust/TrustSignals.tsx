@@ -3,7 +3,7 @@ import { BadgeCheck, FileSearch, Handshake, ExternalLink } from "lucide-react";
 const trustMetrics = [
   {
     label: "Vérification en cours",
-    value: "+120",
+    value: "120",
     detail: "Les premiers témoignages sont actuellement en analyse via notre protocole anonyme sécurisé.",
   },
   {
