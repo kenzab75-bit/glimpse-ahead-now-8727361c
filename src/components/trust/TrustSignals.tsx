@@ -43,8 +43,8 @@ export const TrustSignals = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-background via-muted/10 to-background" id="preuves">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-start gap-8">
-          <div className="lg:w-1/2 space-y-6" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row items-stretch gap-8">
+          <div className="lg:w-1/2 space-y-6 flex flex-col justify-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
               <BadgeCheck className="h-4 w-4" aria-hidden="true" /> Réassurance
             </div>
