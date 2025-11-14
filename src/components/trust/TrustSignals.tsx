@@ -43,8 +43,8 @@ export const TrustSignals = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-background via-muted/10 to-background" id="preuves">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-start gap-12">
-          <div className="lg:w-2/5 space-y-6" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row items-start gap-8">
+          <div className="lg:w-1/2 space-y-6" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
               <BadgeCheck className="h-4 w-4" aria-hidden="true" /> Réassurance
             </div>
@@ -56,7 +56,7 @@ export const TrustSignals = () => {
             </p>
             <div className="grid gap-4" role="list">
               {trustMetrics.map((metric) => (
-                <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-4" role="listitem">
+                <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-5" role="listitem">
                   <p className="text-xs uppercase tracking-widest text-primary/70">{metric.label}</p>
                   {metric.subtitle && (
                     <p className="text-sm font-semibold text-primary mt-1">{metric.subtitle}</p>
@@ -67,7 +67,7 @@ export const TrustSignals = () => {
             </div>
           </div>
 
-          <div className="lg:w-3/5 w-full grid gap-6" data-aos="fade-up" data-aos-delay="150">
+          <div className="lg:w-1/2 w-full grid gap-6" data-aos="fade-up" data-aos-delay="150">
             <div className="glass-card rounded-2xl border border-white/10 p-6">
               <h3 className="text-xl font-semibold flex items-center gap-2">
                 <Handshake className="h-5 w-5 text-primary" aria-hidden="true" />
