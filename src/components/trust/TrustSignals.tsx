@@ -59,8 +59,7 @@ export const TrustSignals = () => {
                   {metric.subtitle && (
                     <p className="text-sm font-semibold text-primary mt-1">{metric.subtitle}</p>
                   )}
-                  <p className="text-3xl font-black mt-1">{metric.value}</p>
-                  <p className="text-sm text-muted-foreground">{metric.detail}</p>
+                  <p className="text-sm text-muted-foreground mt-2">{metric.detail}</p>
                 </div>
               ))}
             </div>
