@@ -23,18 +23,18 @@ const trustMetrics = [
 
 const proofLinks = [
   {
-    title: "Lettre recommandée à la DGCCRF",
-    description: "Accusé de réception daté du 4 janvier 2025 confirmant l'ouverture d'une enquête préliminaire.",
+    title: "Lettre recommandée à la DGCCRF (dépôt réalisé)",
+    description: "Réception confirmée pour l'ouverture d'un premier examen préliminaire.",
     href: "https://example.org/preuve-dgccrf.pdf",
   },
   {
-    title: "Rapport d'expert indépendant",
-    description: "Analyse d'un chirurgien-dentiste agréé détaillant les malfaçons constatées (septembre 2024).",
+    title: "Expertise indépendante (en cours d'intégration)",
+    description: "Analyse d'un chirurgien-dentiste agréé détaillant les premières anomalies constatées.",
     href: "https://example.org/rapport-expert.pdf",
   },
   {
-    title: "Déclaration CNIL",
-    description: "Numéro de récépissé 2548795 confirmant la conformité du traitement de données sensibles.",
+    title: "Déclaration CNIL (conformité validée)",
+    description: "Traitement des données sensibles enregistré conformément aux obligations légales.",
     href: "https://example.org/recipisse-cnil.pdf",
   },
 ];
