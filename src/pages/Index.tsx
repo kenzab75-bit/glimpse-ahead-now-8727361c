@@ -9,19 +9,27 @@ import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SkipLink } from "@/components/SkipLink";
+import { DataTransparency } from "@/components/privacy/DataTransparency";
+import { TrustSignals } from "@/components/trust/TrustSignals";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SkipLink />
       <Navigation />
-      <Hero />
-      <MyStory />
-      <Timeline />
-      <PatientRights />
-      <Stories />
-      <WhistleblowForm />
-      <FAQ />
-      <Contact />
+      <main id="main-content" className="flex flex-col" aria-label="Contenu principal">
+        <Hero />
+        <MyStory />
+        <Timeline />
+        <PatientRights />
+        <Stories />
+        <TrustSignals />
+        <WhistleblowForm />
+        <DataTransparency />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
       <ScrollToTop />
     </div>

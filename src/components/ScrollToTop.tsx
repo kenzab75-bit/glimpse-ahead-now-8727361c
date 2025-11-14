@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useMotionPreferences } from "@/context/MotionContext";
 
 export const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      // Afficher le bouton après 300px de scroll
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  const { y } = useScrollPosition();
+  const { reducedMotion } = useMotionPreferences();
+  const isVisible = y > 300;
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: reducedMotion ? "auto" : "smooth",
     });
   };
 

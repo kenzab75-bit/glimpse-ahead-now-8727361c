@@ -1,37 +1,34 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchTestimonials, Testimonial } from "@/lib/api";
 
-type Category = "Tous" | "Complications" | "Négligence" | "Fraude" | "Facturation";
+type Category = "Tous" | string;
 
 export const Stories = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("Tous");
+  const { data: testimonials = [], isLoading } = useQuery<Testimonial[]>({
+    queryKey: ["testimonials"],
+    queryFn: fetchTestimonials,
+    staleTime: 1000 * 60 * 10,
+  });
 
-  const stories = [
-    {
-      quote: "Après mon intervention, j'ai souffert de complications qui n'ont jamais été correctement prises en charge. Je me retrouve avec des dommages permanents.",
-      author: "Patient Anonyme",
-      location: "France",
-      category: "Complications" as Category,
-    },
-    {
-      quote: "La clinique a menti sur mon diagnostic pour justifier des procédures inutiles qui m'ont laissé dans un état pire.",
-      author: "Marie S.",
-      location: "Suisse",
-      category: "Fraude" as Category,
-    },
-    {
-      quote: "Facturations abusives, frais cachés non mentionnés. Le montant final était le double du devis initial.",
-      author: "Sophie M.",
-      location: "Luxembourg",
-      category: "Facturation" as Category,
-    },
-  ];
+  const categories = useMemo(() => {
+    const dynamicCategories = Array.from(new Set(testimonials.map((story) => story.category))) as Category[];
+    const ordered = ["Complications", "Négligence", "Fraude", "Facturation"] as Category[];
+    const combined = ordered.filter((cat) => dynamicCategories.includes(cat));
+    return ["Tous", ...combined, ...dynamicCategories.filter((cat) => !combined.includes(cat))];
+  }, [testimonials]);
 
-  const categories: Category[] = ["Tous", "Complications", "Négligence", "Fraude", "Facturation"];
+  const filteredStories = useMemo(() => {
+    if (activeCategory === "Tous") {
+      return testimonials;
+    }
+    return testimonials.filter((story) => story.category === activeCategory);
+  }, [activeCategory, testimonials]);
 
-  const filteredStories = activeCategory === "Tous" 
-    ? stories 
-    : stories.filter(story => story.category === activeCategory);
+  const hasTestimonials = filteredStories.length > 0;
 
   return (
     <section 
@@ -56,10 +53,13 @@ export const Stories = () => {
         </div>
 
         {/* Premium Filter System */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
+        <div className="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100" role="tablist">
           {categories.map((category) => (
             <button
               key={category}
+              type="button"
+              role="tab"
+              aria-selected={activeCategory === category}
               onClick={() => setActiveCategory(category)}
               className={`
                 px-6 py-3 rounded-full font-medium text-sm tracking-wide
@@ -69,14 +69,21 @@ export const Stories = () => {
                   : 'bg-white/5 text-[#F1F1F1]/60 border-white/10 hover:text-[#F1F1F1] hover:bg-white/10 hover:border-white/20 hover:scale-105'
                 }
               `}
+              disabled={isLoading && category !== "Tous"}
             >
               {category}
             </button>
           ))}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {filteredStories.map((story, index) => (
+        <div className="text-center text-sm text-[#F1F1F1]/60" aria-live="polite">
+          {isLoading
+            ? "Chargement des témoignages vérifiés…"
+            : `${filteredStories.length} témoignage${filteredStories.length > 1 ? 's' : ''} disponibles.`}
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8" aria-live="polite">
+          {hasTestimonials ? filteredStories.map((story, index) => (
             <Card
               key={`${story.author}-${index}`}
               className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_0_rgba(229,57,53,0.2)] hover:scale-[1.02] hover:border-[#E53935]/30 transition-all duration-500 animate-fade-in"
@@ -97,14 +104,37 @@ export const Stories = () => {
                       <p className="font-bold text-[#F1F1F1]">{story.author}</p>
                       <p className="text-sm text-[#F1F1F1]/50">{story.location}</p>
                     </div>
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#E53935]/15 text-[#E53935] border border-[#E53935]/30 shadow-[0_0_12px_rgba(229,57,53,0.2)]">
+                    <Badge className="bg-[#E53935]/15 text-[#E53935] border border-[#E53935]/30 shadow-[0_0_12px_rgba(229,57,53,0.2)]">
                       {story.category}
-                    </span>
+                    </Badge>
                   </div>
+                  {story.evidenceUrl && (
+                    <a
+                      href={story.evidenceUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#E53935] hover:text-[#ff6b6b] transition-colors"
+                    >
+                      Consulter la preuve
+                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M12.293 2.293a1 1 0 011.414 0L19 7.586l-1.414 1.414L14 5.414V17a1 1 0 11-2 0V5.414l-3.586 3.586L7 7.586l4.293-4.293z" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </CardContent>
             </Card>
-          ))}
+          )) : (
+            <div className="md:col-span-3 text-center text-[#F1F1F1]/70 space-y-4">
+              <p>Aucun témoignage pour cette catégorie pour le moment.</p>
+              <a
+                href="#agir"
+                className="inline-flex items-center gap-2 rounded-full border border-[#E53935]/40 px-6 py-3 text-sm font-semibold text-[#E53935] hover:bg-[#E53935]/20 transition-colors"
+              >
+                Partager le vôtre anonymement
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-12 space-y-2">
