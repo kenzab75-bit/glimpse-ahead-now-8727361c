@@ -8,9 +8,10 @@ const trustMetrics = [
     detail: "Les premiers témoignages sont actuellement en analyse via notre protocole anonyme sécurisé.",
   },
   {
-    label: "Signalements transmis",
+    label: "Signalements préparés",
+    subtitle: "Transmission imminente",
     value: "87",
-    detail: "dossiers remis aux autorités sanitaires européennes",
+    detail: "Les premiers dossiers sont en cours de consolidation avant envoi aux autorités sanitaires européennes.",
   },
   {
     label: "Actions en cours",
