@@ -3,8 +3,9 @@ import { BadgeCheck, FileSearch, Handshake, ExternalLink } from "lucide-react";
 const trustMetrics = [
   {
     label: "Témoignages vérifiés",
+    subtitle: "Vérification en cours",
     value: "+120",
-    detail: "collectés depuis 2022 via notre protocole anonyme",
+    detail: "Les premiers témoignages sont actuellement en analyse via notre protocole anonyme sécurisé.",
   },
   {
     label: "Signalements transmis",
@@ -55,6 +56,9 @@ export const TrustSignals = () => {
               {trustMetrics.map((metric) => (
                 <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-4" role="listitem">
                   <p className="text-xs uppercase tracking-widest text-primary/70">{metric.label}</p>
+                  {metric.subtitle && (
+                    <p className="text-sm font-semibold text-primary mt-1">{metric.subtitle}</p>
+                  )}
                   <p className="text-3xl font-black mt-1">{metric.value}</p>
                   <p className="text-sm text-muted-foreground">{metric.detail}</p>
                 </div>
