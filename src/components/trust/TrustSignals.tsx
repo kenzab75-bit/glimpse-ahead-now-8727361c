@@ -14,9 +14,10 @@ const trustMetrics = [
     detail: "Les premiers dossiers sont en cours de consolidation avant envoi aux autorités sanitaires européennes.",
   },
   {
-    label: "Actions en cours",
+    label: "Actions collectives",
+    subtitle: "Phase de préparation juridique",
     value: "12",
-    detail: "Procédures accompagnées par des juristes partenaires",
+    detail: "Nos juristes partenaires établissent les bases des premières actions collectives coordonnées.",
   },
 ];
 
