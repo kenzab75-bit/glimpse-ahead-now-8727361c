@@ -43,8 +43,8 @@ export const TrustSignals = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-background via-muted/10 to-background" id="preuves">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-start gap-8">
-          <div className="lg:w-1/2 space-y-5" data-aos="fade-up">
+        <div className="flex flex-col lg:flex-row items-stretch gap-8">
+          <div className="lg:w-1/2 space-y-6 flex flex-col justify-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
               <BadgeCheck className="h-4 w-4" aria-hidden="true" /> Réassurance
             </div>
@@ -54,9 +54,9 @@ export const TrustSignals = () => {
             <p className="text-muted-foreground text-base">
               Notre mission avance avec transparence et rigueur. Chaque témoignage est analysé et vérifié afin de documenter les abus et d'accompagner les victimes. Rejoignez-nous et suivez la progression de nos actions.
             </p>
-            <div className="grid gap-3.5" role="list">
+            <div className="grid gap-4" role="list">
               {trustMetrics.map((metric) => (
-                <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-4" role="listitem">
+                <div key={metric.label} className="glass-card rounded-2xl border border-primary/20 p-5" role="listitem">
                   <p className="text-xs uppercase tracking-widest text-primary/70">{metric.label}</p>
                   {metric.subtitle && (
                     <p className="text-sm font-semibold text-primary mt-1">{metric.subtitle}</p>
