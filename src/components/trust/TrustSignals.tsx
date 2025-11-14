@@ -16,7 +16,7 @@ const trustMetrics = [
   {
     label: "Actions en cours",
     value: "12",
-    detail: "procédures collectives accompagnées par des juristes partenaires",
+    detail: "procédures accompagnées par des juristes partenaires",
   },
 ];
 
