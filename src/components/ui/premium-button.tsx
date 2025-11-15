@@ -26,41 +26,27 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement & HTMLAnchorElem
     },
     ref
   ) => {
-    const { reducedMotion } = useMotionPreferences();
-
     const baseClasses = cn(
-      "relative inline-flex items-center justify-center gap-3 font-semibold rounded-xl overflow-hidden group",
+      "relative inline-flex items-center justify-center gap-3 font-semibold rounded-xl",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
       "disabled:pointer-events-none disabled:opacity-60",
       size === "lg" && "px-12 py-5 text-lg lg:text-xl min-w-[280px]",
       size === "default" && "px-8 py-4 text-base min-w-[200px]",
       variant === "primary" &&
-        "bg-gradient-to-br from-primary via-primary/90 to-primary/75 text-primary-foreground shadow-[0_18px_38px_rgba(215,38,61,0.28)]",
+        "bg-[#C6252E] text-white border border-[#8F1A23]/50 shadow-[0_16px_32px_rgba(10,8,9,0.45)] hover:bg-[#8F1A23]",
       variant === "secondary" &&
-        "glass-strong border border-accent/35 text-foreground hover:border-accent/50",
-      reducedMotion
-        ? "transition-colors duration-300"
-        : "transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(8,12,20,0.35)]",
+        "bg-[#111113] text-white border border-[#2F1A1D] hover:border-[#4E0C13] hover:bg-[#1A0E11]",
+      "transition-colors duration-200 ease-out",
       className
     );
 
     const showProgress = loading || typeof progress === "number";
     const content = (
       <>
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        />
-        {!reducedMotion && (
-          <span
-            aria-hidden="true"
-            className="absolute inset-[-30%] bg-gradient-to-br from-primary/12 via-transparent to-accent/18 blur-3xl opacity-0 group-hover:opacity-80 transition-opacity duration-700"
-          />
-        )}
         {showProgress && (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-background/30 overflow-hidden">
             <div
-              className="h-full bg-primary-foreground transition-all duration-300"
+              className="h-full bg-white/80 transition-all duration-300"
               style={{ width: loading ? "100%" : `${progress ?? 0}%` }}
             >
               {loading && (

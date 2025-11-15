@@ -55,13 +55,13 @@ export const Navigation = () => {
   } as const;
 
   const linkClasses =
-    "relative px-4 py-2 text-[15px] font-medium text-foreground/80 transition-colors duration-200 rounded-lg hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background hover:bg-secondary/50";
+    "relative px-4 py-2 text-[15px] font-medium text-foreground/85 transition-colors duration-200 rounded-lg hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background hover:bg-[#1A0E11]/80";
   const dropdownLinkClasses =
-    "block w-full text-left px-4 py-3 text-sm font-medium text-foreground/75 hover:text-foreground hover:bg-secondary/50 transition-colors duration-200";
+    "block w-full text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-white hover:bg-[#1A0E11]/80 transition-colors duration-200";
   const mobileLinkClasses =
-    "block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium text-foreground/75 hover:text-foreground hover:bg-secondary/40 transition-colors duration-200 border border-transparent hover:border-accent/30";
+    "block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium text-foreground/80 hover:text-white hover:bg-[#1A0E11]/80 transition-colors duration-200 border border-transparent hover:border-[#302226]";
   const mobileSubLinkClasses =
-    "block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium text-foreground/70 hover:text-foreground hover:bg-secondary/40 transition-colors duration-200";
+    "block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium text-foreground/75 hover:text-white hover:bg-[#1A0E11]/70 transition-colors duration-200";
 
   const informerMenuId = "navigation-informer-menu";
   const temoignagesMenuId = "navigation-temoignages-menu";
@@ -97,15 +97,15 @@ export const Navigation = () => {
           <a
             href="#accueil"
             onClick={(event) => handleNavigation(event, "accueil")}
-            className="flex items-center gap-3 relative px-3 py-2 rounded-xl transition-colors duration-200 hover:bg-secondary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex items-center gap-3 relative px-3 py-2 rounded-xl transition-colors duration-200 hover:bg-[#1A0E11]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <div className="rounded-lg bg-gradient-to-br from-secondary/90 via-secondary/70 to-secondary/60 p-2 border border-accent/25 shadow-inner">
-              <Scale className="h-6 w-6 text-accent" strokeWidth={2.5} />
+            <div className="rounded-lg bg-[#111113] p-2 border border-[#2F1A1D] shadow-inner">
+              <Scale className="h-6 w-6 text-[#C6252E]" strokeWidth={2.5} />
             </div>
 
             <div className="flex items-center gap-1 relative">
               <span className="text-2xl font-black tracking-tight text-foreground">LemaClinic</span>
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-primary via-[#8f1f32] to-[#1A102A] bg-clip-text text-transparent">
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-[#C6252E] via-[#8F1A23] to-[#4E0C13] bg-clip-text text-transparent">
                 Truth
               </span>
             </div>
@@ -238,7 +238,7 @@ export const Navigation = () => {
             <button
               type="button"
               onClick={cycleMotionPreference}
-              className="ml-2 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-foreground/60 border border-accent/20 rounded-lg transition-colors duration-200 hover:text-foreground hover:border-accent/40 hover:bg-secondary/40"
+              className="ml-2 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-foreground/65 border border-accent/20 rounded-lg transition-colors duration-200 hover:text-white hover:border-accent/40 hover:bg-[#1A0E11]/70"
               aria-label={`${motionLabel[preference]} – activer l'option suivante`}
             >
               {motionLabel[preference]}
@@ -270,7 +270,7 @@ export const Navigation = () => {
             className="md:hidden mt-6 space-y-1 animate-fade-in"
             aria-label="Navigation principale mobile"
           >
-            <div className="backdrop-blur-xl bg-secondary/80 rounded-2xl border border-accent/25 p-2 shadow-[0_18px_40px_rgba(8,12,20,0.45)]">
+            <div className="backdrop-blur-xl bg-[#111113]/90 rounded-2xl border border-accent/25 p-2 shadow-[0_18px_40px_rgba(8,12,20,0.45)]">
               <a
                 href="#accueil"
                 onClick={(event) => handleNavigation(event, "accueil")}
@@ -384,7 +384,7 @@ export const Navigation = () => {
                     }
                   }, 0);
                 }}
-                className="w-full px-4 py-3 rounded-xl text-[14px] font-semibold text-foreground/70 border border-accent/20 hover:border-accent/40 hover:text-foreground hover:bg-secondary/40 transition-colors duration-200"
+                className="w-full px-4 py-3 rounded-xl text-[14px] font-semibold text-foreground/75 border border-accent/20 hover:border-accent/40 hover:text-white hover:bg-[#1A0E11]/70 transition-colors duration-200"
                 style={{
                   animationDelay: '300ms',
                   animation: 'fade-in 0.3s ease-out forwards'

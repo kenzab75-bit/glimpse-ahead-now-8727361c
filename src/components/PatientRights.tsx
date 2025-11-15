@@ -12,7 +12,7 @@ interface Right {
 export const PatientRights = () => {
   const rights: Right[] = [
     {
-      icon: <FileText className="w-8 h-8 text-[#D7263D]" />,
+      icon: <FileText className="w-8 h-8 text-[#C6252E]" />,
       title: "Droit à l'information",
       description: "Le patient a le droit d'être informé de manière claire, loyale et complète sur son état de santé et sur les traitements proposés, dans le respect des règles déontologiques.",
       details: [
@@ -24,7 +24,7 @@ export const PatientRights = () => {
       ]
     },
     {
-      icon: <Shield className="w-8 h-8 text-[#D7263D]" />,
+      icon: <Shield className="w-8 h-8 text-[#C6252E]" />,
       title: "Consentement éclairé",
       description: "Aucun soin ne peut être réalisé sans le consentement libre et éclairé du patient, obtenu après une information complète, honnête et compréhensible sur les traitements proposés.",
       details: [
@@ -36,7 +36,7 @@ export const PatientRights = () => {
       ]
     },
     {
-      icon: <Scale className="w-8 h-8 text-[#D7263D]" />,
+      icon: <Scale className="w-8 h-8 text-[#C6252E]" />,
       title: "Droit aux recours",
       description: "Même à l'étranger, un patient n'est pas sans droits. En cas de soins fautifs réalisés en Turquie, il existe plusieurs recours possibles pour obtenir réparation et justice.",
       details: [
@@ -48,7 +48,7 @@ export const PatientRights = () => {
       ]
     },
     {
-      icon: <Lock className="w-8 h-8 text-[#D7263D]" />,
+      icon: <Lock className="w-8 h-8 text-[#C6252E]" />,
       title: "Protection des données",
       description: "Les informations médicales sont strictement confidentielles et protégées par le secret médical.",
       details: [
@@ -60,7 +60,7 @@ export const PatientRights = () => {
       ]
     },
     {
-      icon: <AlertCircle className="w-8 h-8 text-[#D7263D]" />,
+      icon: <AlertCircle className="w-8 h-8 text-[#C6252E]" />,
       title: "Signalement des abus",
       description: "Tout patient victime de pratiques abusives peut et doit signaler ces faits aux autorités compétentes.",
       details: [
@@ -72,7 +72,7 @@ export const PatientRights = () => {
       ]
     },
     {
-      icon: <HelpCircle className="w-8 h-8 text-[#D7263D]" />,
+      icon: <HelpCircle className="w-8 h-8 text-[#C6252E]" />,
       title: "Besoin d'aide juridique ?",
       description: "Si vous estimez que vos droits ont été bafoués, contactez-nous. Nous pouvons vous orienter vers un avocat spécialisé exerçant à Paris et à Istanbul, capable d'évaluer votre dossier et de vous accompagner.",
       showContactButton: true,
@@ -84,19 +84,19 @@ export const PatientRights = () => {
     <section className="py-20 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden" id="vos-droits">
       {/* Background effects */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-[#D7263D]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#D7263D]/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 right-10 w-96 h-96 bg-[#C6252E]/12 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#8F1A23]/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#D7263D]/10 mb-6">
-            <Scale className="w-8 h-8 text-[#D7263D]" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C6252E]/10 mb-6">
+            <Scale className="w-8 h-8 text-[#C6252E]" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
             Vos Droits en tant que Patient
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-[#D7263D] to-[#D7263D]/40 mx-auto mb-6 rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-[#C6252E] to-[#8F1A23] mx-auto mb-6 rounded-full"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Connaître vos droits est essentiel pour vous protéger et faire valoir vos intérêts en cas de litige médical.
           </p>
@@ -112,10 +112,10 @@ export const PatientRights = () => {
               <CardContent className="p-8 h-full flex flex-col">
                 <div className="flex-1 flex flex-col">
                   <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#D7263D]/10 mb-4 group-hover:shadow-[0_0_20px_rgba(215,38,61,0.3)] transition-shadow duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C6252E]/10 mb-4 group-hover:shadow-[0_0_20px_rgba(198,37,46,0.3)] transition-shadow duration-300">
                       {right.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#D7263D] transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#C6252E] transition-colors duration-300">
                       {right.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-6">
@@ -127,7 +127,7 @@ export const PatientRights = () => {
                     <div className="mt-auto pt-4">
                       <a
                         href="#contact"
-                        className="inline-flex items-center px-6 py-3 bg-[#D7263D] text-white rounded-lg font-semibold hover:bg-[#D7263D]/90 hover:shadow-[0_0_20px_rgba(215,38,61,0.4)] transition-all duration-300 w-full justify-center"
+                        className="inline-flex items-center px-6 py-3 bg-[#C6252E] text-white rounded-lg font-semibold hover:bg-[#8F1A23] hover:shadow-[0_0_20px_rgba(198,37,46,0.35)] transition-all duration-300 w-full justify-center"
                       >
                         Nous contacter
                       </a>
@@ -145,7 +145,7 @@ export const PatientRights = () => {
                               key={idx}
                               className="flex items-start text-sm text-muted-foreground"
                             >
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#D7263D] mt-2 mr-3 flex-shrink-0"></span>
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C6252E] mt-2 mr-3 flex-shrink-0"></span>
                               <span className="leading-relaxed">{detail}</span>
                             </li>
                           ))}
