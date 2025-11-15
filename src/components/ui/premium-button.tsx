@@ -1,6 +1,5 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { useMotionPreferences } from "@/context/MotionContext";
 
 interface PremiumButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   variant?: "primary" | "secondary";
