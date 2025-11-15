@@ -39,49 +39,37 @@ export const WhistleblowForm = () => {
   };
 
   return (
-    <section 
-      className="py-20 relative overflow-hidden" 
-      id="agir"
-      style={{
-        background: 'linear-gradient(135deg, #242424 0%, #2A2A2A 50%, #242424 100%)',
-      }}
-    >
-      {/* Effets discrets premium */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D7263D]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D7263D]/5 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-20 bg-muted/50" id="agir">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-4xl font-bold mb-4 text-[#F1F1F1]">Témoignage Anonyme</h2>
-          <p className="text-xl text-[#F1F1F1]/70 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Témoignage Anonyme</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Partagez votre expérience de manière anonyme et sécurisée. Votre identité est protégée.
           </p>
         </div>
 
-        <Card className="max-w-2xl mx-auto bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]" data-aos="fade-up" data-aos-delay="200">
+        <Card className="max-w-2xl mx-auto glass-card" data-aos="fade-up" data-aos-delay="200">
           <CardContent className="p-8">
-            <div className="flex items-center space-x-3 mb-6 p-4 bg-[#D7263D]/10 border border-[#D7263D]/20 rounded-lg">
-              <Shield className="h-6 w-6 text-[#D7263D]" />
-              <p className="text-sm text-[#F1F1F1]/70">
+            <div className="flex items-center space-x-3 mb-6 p-4 bg-accent/50 rounded-lg">
+              <Shield className="h-6 w-6 text-primary" />
+              <p className="text-sm text-muted-foreground">
                 Tous les témoignages sont cryptés et stockés en toute sécurité. Nous ne collectons jamais d'adresses IP ou d'informations identifiantes.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="message" className="text-[#F1F1F1]">Votre témoignage</Label>
+                <Label htmlFor="message">Votre témoignage</Label>
                 <Textarea
                   id="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Partagez votre histoire... (Tous les témoignages sont entièrement anonymes)"
-                  className="min-h-[200px] mt-2 bg-white/[0.05] border-white/20 text-[#F1F1F1] placeholder:text-[#F1F1F1]/40"
+                  className="min-h-[200px] mt-2"
                   required
                 />
               </div>
-              <div className="flex items-start gap-3 rounded-lg border border-[#D7263D]/20 bg-[#D7263D]/5 p-4">
+              <div className="flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/5 p-4">
                 <Checkbox
                   id="whistle-consent"
                   checked={consent}
@@ -89,8 +77,8 @@ export const WhistleblowForm = () => {
                   required
                   aria-describedby="whistle-consent-hint"
                 />
-                <div className="space-y-1 text-sm text-[#F1F1F1]/70">
-                  <label htmlFor="whistle-consent" className="font-medium text-[#F1F1F1]">
+                <div className="space-y-1 text-sm text-muted-foreground">
+                  <label htmlFor="whistle-consent" className="font-medium text-foreground">
                     Je comprends que mon témoignage sera anonymisé et stocké de façon chiffrée.
                   </label>
                   <p id="whistle-consent-hint">
