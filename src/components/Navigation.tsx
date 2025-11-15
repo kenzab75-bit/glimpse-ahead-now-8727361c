@@ -23,11 +23,33 @@ export const Navigation = () => {
   };
 
   const navigateTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
-      closeMenus();
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return;
     }
+
+    const element = document.getElementById(id);
+    if (!element) {
+      return;
+    }
+
+    const navElement = document.querySelector(
+      'nav[aria-label="Navigation principale"]'
+    ) as HTMLElement | null;
+    const navHeight = navElement?.offsetHeight ?? 0;
+    const offset = 24;
+    const targetPosition =
+      element.getBoundingClientRect().top + window.scrollY - navHeight - offset;
+
+    window.scrollTo({
+      top: targetPosition > 0 ? targetPosition : 0,
+      behavior: reducedMotion ? "auto" : "smooth"
+    });
+
+    if (window.location.hash !== `#${id}`) {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+
+    closeMenus();
   };
 
   const handleNavigation = (
