@@ -105,7 +105,7 @@ export const Navigation = () => {
 
             <div className="flex items-center gap-1 relative">
               <span className="text-2xl font-black tracking-tight text-foreground">LemaClinic</span>
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-primary via-[#8f1f32] to-[#1A102A] bg-clip-text text-transparent">
                 Truth
               </span>
             </div>

@@ -26,7 +26,7 @@ export const Hero = () => {
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.18), transparent 55%), radial-gradient(circle at 78% 70%, rgba(56, 140, 255, 0.22), transparent 52%)",
+            "radial-gradient(circle at 20% 30%, rgba(215, 38, 61, 0.2), transparent 55%), radial-gradient(circle at 78% 70%, rgba(26, 16, 42, 0.35), transparent 52%)",
         }}
       ></div>
 
@@ -48,7 +48,7 @@ export const Hero = () => {
           <div
             className={cn(
               "relative p-[1px] rounded-full",
-              "bg-gradient-to-br from-primary/70 via-primary/60 to-accent/60 shadow-[0_12px_40px_rgba(8,12,20,0.45)]"
+              "bg-gradient-to-br from-primary/70 via-[#7a1f30]/65 to-[#1A102A]/60 shadow-[0_12px_40px_rgba(6,10,18,0.55)]"
             )}
             aria-hidden="true"
           >
@@ -75,7 +75,7 @@ export const Hero = () => {
           <span className="block relative inline-block">
             <span
               className={cn(
-                "bg-gradient-to-br from-primary via-primary/90 to-accent/75 bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(45,75,255,0.25)]",
+                "bg-gradient-to-br from-primary via-[#8f1f32]/85 to-[#1A102A]/80 bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(215,38,61,0.32)]",
                 !reducedMotion && "motion-safe:animate-[fade-in_0.9s_ease-out_forwards]"
               )}
             >
@@ -135,7 +135,7 @@ export const Hero = () => {
           <div className="glass-strong w-8 h-12 border border-accent/30 rounded-full flex justify-center p-2">
             <div
               className={cn(
-                "w-2 h-4 rounded-full bg-gradient-to-b from-accent to-primary",
+                "w-2 h-4 rounded-full bg-gradient-to-b from-[#111827] to-[#6f1f30]",
                 !reducedMotion && "motion-safe:animate-[pulse_4s_ease-in-out_infinite]"
               )}
             ></div>

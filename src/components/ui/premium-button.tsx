@@ -35,7 +35,7 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement & HTMLAnchorElem
       size === "lg" && "px-12 py-5 text-lg lg:text-xl min-w-[280px]",
       size === "default" && "px-8 py-4 text-base min-w-[200px]",
       variant === "primary" &&
-        "bg-gradient-to-br from-primary via-primary/90 to-primary/75 text-primary-foreground shadow-[0_18px_38px_rgba(229,57,53,0.28)]",
+        "bg-gradient-to-br from-primary via-primary/90 to-primary/75 text-primary-foreground shadow-[0_18px_38px_rgba(215,38,61,0.28)]",
       variant === "secondary" &&
         "glass-strong border border-accent/35 text-foreground hover:border-accent/50",
       reducedMotion

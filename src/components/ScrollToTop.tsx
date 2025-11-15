@@ -20,7 +20,7 @@ export const ScrollToTop = () => {
       className={`fixed bottom-8 right-8 z-50 p-4 glass-premium rounded-full
                  border-2 border-primary/30 hover:border-primary
                  transition-all duration-500 ease-out
-                 hover:scale-110 hover:shadow-[0_0_30px_rgba(229,57,53,0.5)]
+                 hover:scale-110 hover:shadow-[0_0_30px_rgba(215,38,61,0.5)]
                  group ${
                    isVisible
                      ? "opacity-100 translate-y-0"

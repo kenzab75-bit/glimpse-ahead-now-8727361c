@@ -40,8 +40,8 @@ export const Stories = () => {
     >
       {/* Effets discrets premium */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#E53935]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E53935]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D7263D]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D7263D]/5 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
@@ -65,7 +65,7 @@ export const Stories = () => {
                 px-6 py-3 rounded-full font-medium text-sm tracking-wide
                 backdrop-blur-xl border transition-all duration-500 ease-out
                 ${activeCategory === category
-                  ? 'bg-[#E53935]/20 text-[#E53935] border-[#E53935]/40 shadow-[0_0_20px_rgba(229,57,53,0.3)] scale-105'
+                  ? 'bg-[#D7263D]/20 text-[#D7263D] border-[#D7263D]/40 shadow-[0_0_20px_rgba(215,38,61,0.3)] scale-105'
                   : 'bg-white/5 text-[#F1F1F1]/60 border-white/10 hover:text-[#F1F1F1] hover:bg-white/10 hover:border-white/20 hover:scale-105'
                 }
               `}
@@ -86,12 +86,12 @@ export const Stories = () => {
           {hasTestimonials ? filteredStories.map((story, index) => (
             <Card
               key={`${story.author}-${index}`}
-              className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_0_rgba(229,57,53,0.2)] hover:scale-[1.02] hover:border-[#E53935]/30 transition-all duration-500 animate-fade-in"
+              className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_0_rgba(215,38,61,0.2)] hover:scale-[1.02] hover:border-[#D7263D]/30 transition-all duration-500 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8">
                 <div className="mb-6">
-                  <svg className="h-8 w-8 text-[#E53935] mb-4 drop-shadow-[0_0_8px_rgba(229,57,53,0.5)]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-8 w-8 text-[#D7263D] mb-4 drop-shadow-[0_0_8px_rgba(215,38,61,0.5)]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="text-[#F1F1F1]/80 italic mb-4 leading-relaxed text-lg">
@@ -104,7 +104,7 @@ export const Stories = () => {
                       <p className="font-bold text-[#F1F1F1]">{story.author}</p>
                       <p className="text-sm text-[#F1F1F1]/50">{story.location}</p>
                     </div>
-                    <Badge className="bg-[#E53935]/15 text-[#E53935] border border-[#E53935]/30 shadow-[0_0_12px_rgba(229,57,53,0.2)]">
+                    <Badge className="bg-[#D7263D]/15 text-[#D7263D] border border-[#D7263D]/30 shadow-[0_0_12px_rgba(215,38,61,0.2)]">
                       {story.category}
                     </Badge>
                   </div>
@@ -113,7 +113,7 @@ export const Stories = () => {
                       href={story.evidenceUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#E53935] hover:text-[#ff6b6b] transition-colors"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#D7263D] hover:text-[#f0475e] transition-colors"
                     >
                       Consulter la preuve
                       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -129,7 +129,7 @@ export const Stories = () => {
               <p>Aucun témoignage pour cette catégorie pour le moment.</p>
               <a
                 href="#agir"
-                className="inline-flex items-center gap-2 rounded-full border border-[#E53935]/40 px-6 py-3 text-sm font-semibold text-[#E53935] hover:bg-[#E53935]/20 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-[#D7263D]/40 px-6 py-3 text-sm font-semibold text-[#D7263D] hover:bg-[#D7263D]/20 transition-colors"
               >
                 Partager le vôtre anonymement
               </a>
