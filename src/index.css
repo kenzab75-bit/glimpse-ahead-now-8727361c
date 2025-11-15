@@ -8,45 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark investigative theme */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Palette rouge/noir premium inspirée des enquêtes documentaires */
+    --background: 240 7% 5%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 7%;
+    --card: 345 18% 9%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 7%;
+    --popover: 345 15% 8%;
     --popover-foreground: 0 0% 98%;
 
-    /* Alert red as primary - urgent/danger theme */
-    --primary: 0 72% 51%;
+    /* Rouge judiciaire contrôlé */
+    --primary: 357 69% 46%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 6% 9%;
+    --secondary-foreground: 0 0% 92%;
 
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 5% 20%;
+    --muted-foreground: 0 0% 76%;
 
-    --accent: 0 72% 51%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 355 69% 33%;
+    --accent-foreground: 0 0% 96%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 354 74% 18%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 72% 51%;
+    --border: 0 5% 18%;
+    --input: 0 5% 14%;
+    --ring: 355 69% 33%;
 
     --radius: 0.75rem;
 
-    /* Glass morphism */
-    --glass-bg: 0 0% 100% / 0.03;
-    --glass-border: 0 0% 100% / 0.08;
-    
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(0 72% 51% / 0.3);
-    --shadow-intense: 0 0 80px hsl(0 72% 51% / 0.5);
+    /* Traits verriers atténués pour une clarté optimale */
+    --glass-bg: 0 6% 9% / 0.72;
+    --glass-border: 0 7% 18% / 0.8;
+
+    /* Ombres contrôlées */
+    --shadow-glow: 0 0 36px hsl(357 69% 46% / 0.22);
+    --shadow-intense: 0 28px 60px rgba(5, 6, 8, 0.6);
   }
 }
 
@@ -66,21 +66,22 @@ All colors MUST be HSL.
 
   /* Glass morphism utility - Premium */
   .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(17, 17, 19, 0.78);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(47, 24, 29, 0.5);
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(13, 13, 15, 0.92);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(79, 27, 32, 0.5);
+    box-shadow: 0 24px 50px rgba(4, 4, 6, 0.65);
   }
 
   .glass-premium {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(17, 13, 15, 0.88);
+    backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(95, 30, 38, 0.4);
   }
 
   /* Smooth scrolling */
@@ -98,7 +99,7 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.5);
+    background: hsl(var(--accent) / 0.5);
     border-radius: 5px;
   }
 
@@ -182,6 +183,22 @@ All colors MUST be HSL.
 
   .animate-shimmer {
     animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes heroHalo {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-hero-halo {
+    animation: heroHalo 6s ease-in-out infinite;
   }
 }
 

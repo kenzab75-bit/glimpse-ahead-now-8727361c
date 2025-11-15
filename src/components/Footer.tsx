@@ -40,27 +40,27 @@ export const Footer = () => {
             </div>
 
             {/* Bloc Nous contacter - Glassmorphisme */}
-            <div className="glass-premium p-6 rounded-2xl border-2 border-[#E53935]/20 hover:border-[#E53935]/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(229,57,53,0.3)]">
+            <div className="glass-premium p-6 rounded-2xl border-2 border-[#C6252E]/25 hover:border-[#C6252E]/45 transition-all duration-300 hover:shadow-[0_0_30px_rgba(198,37,46,0.28)]">
               <h3 className="text-base font-bold mb-4 text-foreground flex items-center gap-2">
-                <MessageSquare className="h-5 w-5 text-[#E53935]" />
+                <MessageSquare className="h-5 w-5 text-[#C6252E]" />
                 Nous contacter
               </h3>
               <div className="flex flex-col gap-4">
                 <a
                   href="#contact"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-[#E53935] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-[#C6252E] transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#E53935]/10 flex items-center justify-center group-hover:bg-[#E53935]/20 transition-colors">
-                    <Mail className="h-4 w-4 text-[#E53935]" />
+                  <div className="w-8 h-8 rounded-full bg-[#C6252E]/12 flex items-center justify-center group-hover:bg-[#C6252E]/22 transition-colors">
+                    <Mail className="h-4 w-4 text-[#C6252E]" />
                   </div>
                   <span>Formulaire de contact</span>
                 </a>
                 <a
                   href="#agir"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-[#E53935] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-[#C6252E] transition-colors group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#E53935]/10 flex items-center justify-center group-hover:bg-[#E53935]/20 transition-colors">
-                    <Phone className="h-4 w-4 text-[#E53935]" />
+                  <div className="w-8 h-8 rounded-full bg-[#C6252E]/12 flex items-center justify-center group-hover:bg-[#C6252E]/22 transition-colors">
+                    <Phone className="h-4 w-4 text-[#C6252E]" />
                   </div>
                   <span>Témoigner anonymement</span>
                 </a>
