@@ -4,26 +4,38 @@ import { PremiumButton } from "@/components/ui/premium-button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { submitWhistleblow } from "@/lib/api";
 
 export const WhistleblowForm = () => {
   const [message, setMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consent, setConsent] = useState(false);
   const { toast } = useToast();
+
+  const mutation = useMutation({
+    mutationFn: submitWhistleblow,
+    onSuccess: () => {
+      toast({
+        title: "Témoignage envoyé",
+        description: "Votre témoignage a été envoyé de manière anonyme et sécurisée.",
+      });
+      setMessage("");
+      setConsent(false);
+    },
+    onError: () => {
+      toast({
+        title: "Erreur lors de l'envoi",
+        description: "La transmission sécurisée n'a pas abouti. Merci de réessayer ou de nous contacter.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Témoignage envoyé",
-      description: "Votre témoignage a été envoyé de manière anonyme et sécurisée.",
-    });
-    setMessage("");
-    setIsSubmitting(false);
+    mutation.mutate({ message, consent });
   };
 
   return (
@@ -57,16 +69,36 @@ export const WhistleblowForm = () => {
                   required
                 />
               </div>
-              <PremiumButton 
-                type="submit" 
+              <div className="flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/5 p-4">
+                <Checkbox
+                  id="whistle-consent"
+                  checked={consent}
+                  onCheckedChange={(checked) => setConsent(Boolean(checked))}
+                  required
+                  aria-describedby="whistle-consent-hint"
+                />
+                <div className="space-y-1 text-sm text-muted-foreground">
+                  <label htmlFor="whistle-consent" className="font-medium text-foreground">
+                    Je comprends que mon témoignage sera anonymisé et stocké de façon chiffrée.
+                  </label>
+                  <p id="whistle-consent-hint">
+                    Nous supprimons tout identifiant technique (IP, agent utilisateur) et appliquons un hachage salé avant archivage.
+                  </p>
+                </div>
+              </div>
+              <div className="sr-only" aria-live="polite">
+                {mutation.isError && "Une erreur est survenue lors de l'envoi du témoignage."}
+              </div>
+              <PremiumButton
+                type="submit"
                 variant="primary"
                 size="default"
-                loading={isSubmitting}
+                loading={mutation.isPending}
                 icon={<Lock className="h-5 w-5" />}
                 className="w-full"
-                disabled={isSubmitting}
+                disabled={mutation.isPending}
               >
-                {isSubmitting ? "Envoi en cours..." : "Envoyer anonymement"}
+                {mutation.isPending ? "Envoi en cours..." : "Envoyer anonymement"}
               </PremiumButton>
             </form>
           </CardContent>
