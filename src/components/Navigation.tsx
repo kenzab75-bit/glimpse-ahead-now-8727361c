@@ -12,7 +12,7 @@ export const Navigation = () => {
   const [isMobileTemoignagesOpen, setIsMobileTemoignagesOpen] = useState(false);
   const { y } = useScrollPosition();
   const isScrolled = y > 20;
-  const { reducedMotion, preference, setPreference } = useMotionPreferences();
+  const { reducedMotion } = useMotionPreferences();
 
   const closeMenus = () => {
     setIsOpen(false);
@@ -37,22 +37,6 @@ export const Navigation = () => {
     event.preventDefault();
     navigateTo(id);
   };
-
-  const cycleMotionPreference = () => {
-    const nextPreference =
-      preference === "system"
-        ? "reduce"
-        : preference === "reduce"
-          ? "allow"
-          : "system";
-    setPreference(nextPreference);
-  };
-
-  const motionLabel = {
-    system: "Animations : système",
-    reduce: "Animations réduites",
-    allow: "Animations actives",
-  } as const;
 
   const linkClasses =
     "group relative px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.32em] text-white/60 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09080b] hover:text-white after:absolute after:left-3 after:right-3 after:bottom-1 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/80 after:to-transparent after:scale-x-0 after:origin-center after:transition-transform after:duration-300 group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100";
@@ -235,22 +219,6 @@ export const Navigation = () => {
               )}
             </div>
 
-            {/* Contact button - Plus visible */}
-            <a
-              href="#contact"
-              onClick={(event) => handleNavigation(event, "contact")}
-              className="ml-2 rounded-xl bg-[#C6252E] px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 shadow-[0_0_22px_rgba(198,37,46,0.4)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(198,37,46,0.55)]"
-            >
-              Contact
-            </a>
-            <button
-              type="button"
-              onClick={cycleMotionPreference}
-              className="ml-2 rounded-xl border border-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 transition-all duration-300 hover:border-white/20 hover:text-white hover:bg-white/5"
-              aria-label={`${motionLabel[preference]} – activer l'option suivante`}
-            >
-              {motionLabel[preference]}
-            </button>
           </div>
 
           {/* Mobile Menu Button - Raffiné */}
@@ -371,36 +339,6 @@ export const Navigation = () => {
                   </a>
                 </div>
               )}
-              <a
-                href="#contact"
-                onClick={(event) => handleNavigation(event, "contact")}
-                className={`${mobileLinkClasses} mt-2 border-[#C6252E]/40 bg-[#C6252E]/10 text-white/80 hover:border-[#C6252E]/70 hover:bg-[#C6252E]/25 hover:text-white`}
-                style={{
-                  animationDelay: '250ms',
-                  animation: 'fade-in 0.3s ease-out forwards'
-                }}
-              >
-                Contact
-              </a>
-              <button
-                type="button"
-                onClick={() => {
-                  cycleMotionPreference();
-                  setTimeout(() => {
-                    if (typeof document !== "undefined") {
-                      document.getElementById(mobileMenuId)?.focus();
-                    }
-                  }, 0);
-                }}
-                className="w-full rounded-xl border border-white/10 px-4 py-3 text-[12px] font-semibold uppercase tracking-[0.3em] text-white/60 transition-all duration-300 hover:border-white/20 hover:text-white hover:bg-white/5"
-                style={{
-                  animationDelay: '300ms',
-                  animation: 'fade-in 0.3s ease-out forwards'
-                }}
-                aria-label={`${motionLabel[preference]} – activer l'option suivante`}
-              >
-                {motionLabel[preference]}
-              </button>
             </div>
           </div>
         )}
