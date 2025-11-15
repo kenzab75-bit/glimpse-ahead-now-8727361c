@@ -55,13 +55,13 @@ export const Navigation = () => {
   } as const;
 
   const linkClasses =
-    "relative px-4 py-2 text-[15px] font-medium text-foreground/85 transition-colors duration-200 rounded-lg hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background hover:bg-[#1A0E11]/80";
+    "group relative px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.32em] text-white/60 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09080b] hover:text-white after:absolute after:left-3 after:right-3 after:bottom-1 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/80 after:to-transparent after:scale-x-0 after:origin-center after:transition-transform after:duration-300 group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100";
   const dropdownLinkClasses =
-    "block w-full text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-white hover:bg-[#1A0E11]/80 transition-colors duration-200";
+    "block w-full text-left px-4 py-3 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white hover:bg-white/5";
   const mobileLinkClasses =
-    "block w-full text-left px-4 py-3 rounded-xl text-[15px] font-medium text-foreground/80 hover:text-white hover:bg-[#1A0E11]/80 transition-colors duration-200 border border-transparent hover:border-[#302226]";
+    "block w-full text-left px-4 py-3 rounded-xl text-[13px] font-semibold uppercase tracking-[0.28em] text-white/60 transition-all duration-300 border border-white/5 bg-white/0 hover:text-white hover:border-white/20 hover:bg-white/5";
   const mobileSubLinkClasses =
-    "block w-full text-left px-4 py-2 rounded-xl text-[14px] font-medium text-foreground/75 hover:text-white hover:bg-[#1A0E11]/70 transition-colors duration-200";
+    "block w-full text-left px-4 py-2 rounded-lg text-[13px] font-medium text-white/70 transition-colors duration-200 hover:text-white hover:bg-white/5";
 
   const informerMenuId = "navigation-informer-menu";
   const temoignagesMenuId = "navigation-temoignages-menu";
@@ -85,34 +85,38 @@ export const Navigation = () => {
   return (
     <nav
       aria-label="Navigation principale"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
         isScrolled
-          ? "backdrop-blur-xl bg-background/88 border-b border-accent/20 shadow-[0_12px_32px_rgba(8,12,20,0.45)]"
-          : "bg-gradient-to-b from-background/95 via-background/70 to-transparent"
+          ? "backdrop-blur-2xl bg-[#0D0D0F]/95 border-b border-white/5 shadow-[0_18px_44px_rgba(5,4,6,0.55)]"
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-8 py-4">
-        <div className="flex justify-between items-center">
+      <div className="container mx-auto px-6 sm:px-8 py-4 md:py-5 transition-all">
+        <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-gradient-to-r from-[#151114]/90 via-[#111113]/88 to-[#0B0B0D]/90 px-4 sm:px-6 py-3 shadow-[0_32px_70px_rgba(4,4,6,0.55)] backdrop-blur-2xl overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 z-0 rounded-2xl opacity-40 transition-opacity duration-700 [mask-image:radial-gradient(circle_at_top,_white,transparent_70%)] bg-[radial-gradient(circle_at_top,_rgba(198,37,46,0.32),_transparent_65%)]" />
+          <div className="pointer-events-none absolute inset-px z-0 rounded-[18px] border border-white/10" />
+          <div className="pointer-events-none absolute inset-0 z-0 rounded-2xl mix-blend-screen opacity-0 transition-opacity duration-700 group-hover:opacity-40" />
+
           {/* Logo - Modern Design avec effet premium */}
           <a
             href="#accueil"
             onClick={(event) => handleNavigation(event, "accueil")}
-            className="flex items-center gap-3 relative px-3 py-2 rounded-xl transition-colors duration-200 hover:bg-[#1A0E11]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="relative z-10 flex items-center gap-3 rounded-xl px-3 py-2 transition-colors duration-200 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09080b]"
           >
-            <div className="rounded-lg bg-[#111113] p-2 border border-[#2F1A1D] shadow-inner">
-              <Scale className="h-6 w-6 text-[#C6252E]" strokeWidth={2.5} />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#171316] via-[#111113] to-[#0D0D0F] shadow-[0_12px_30px_rgba(7,6,8,0.55)]">
+              <Scale className="h-6 w-6 text-[#C6252E]" strokeWidth={2.4} />
             </div>
 
-            <div className="flex items-center gap-1 relative">
-              <span className="text-2xl font-black tracking-tight text-foreground">LemaClinic</span>
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-[#C6252E] via-[#8F1A23] to-[#4E0C13] bg-clip-text text-transparent">
+            <div className="relative flex items-baseline gap-1">
+              <span className="text-[1.55rem] font-black tracking-tight text-white">LemaClinic</span>
+              <span className="text-[1.55rem] font-black tracking-tight bg-gradient-to-r from-[#C6252E] via-[#8F1A23] to-[#4E0C13] bg-clip-text text-transparent">
                 Truth
               </span>
             </div>
           </a>
 
           {/* Desktop Menu - Ultra premium */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="relative z-10 hidden items-center gap-1 md:flex">
             <a
               href="#accueil"
               onClick={(event) => handleNavigation(event, "accueil")}
@@ -129,7 +133,7 @@ export const Navigation = () => {
             </a>
             {/* S'informer avec dropdown */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setIsInformerDropdownOpen(true)}
               onMouseLeave={() => setIsInformerDropdownOpen(false)}
               onFocus={() => setIsInformerDropdownOpen(true)}
@@ -141,21 +145,23 @@ export const Navigation = () => {
                 aria-haspopup="true"
                 aria-expanded={isInformerDropdownOpen}
                 aria-controls={informerMenuId}
-                className={`${linkClasses} flex items-center gap-1`}
+                className={`${linkClasses} flex items-center gap-2`}
               >
                 S'informer
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isInformerDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`h-4 w-4 text-white/50 transition-transform duration-300 ${isInformerDropdownOpen ? "rotate-180" : ""}`}
+                />
               </button>
-              
+
               {/* Zone invisible pour garder le dropdown ouvert */}
               <div className="absolute top-full left-0 right-0 h-2"></div>
-              
+
               {/* Dropdown menu */}
               {isInformerDropdownOpen && (
                 <div
                   id={informerMenuId}
                   role="menu"
-                  className="absolute top-full left-0 mt-2 w-56 backdrop-blur-xl bg-secondary/90 rounded-xl border border-accent/25 shadow-[0_18px_40px_rgba(8,12,20,0.45)] overflow-hidden animate-fade-in z-[60]"
+                  className="absolute top-full left-0 z-[60] mt-3 w-56 overflow-hidden rounded-2xl border border-white/10 bg-[#0D0D0F]/95 shadow-[0_28px_60px_rgba(6,5,8,0.55)] backdrop-blur-2xl transition duration-200"
                 >
                   <a
                     href="#histoire"
@@ -179,7 +185,7 @@ export const Navigation = () => {
             
             {/* Témoignages avec dropdown */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setIsTemoignagesDropdownOpen(true)}
               onMouseLeave={() => setIsTemoignagesDropdownOpen(false)}
               onFocus={() => setIsTemoignagesDropdownOpen(true)}
@@ -191,21 +197,23 @@ export const Navigation = () => {
                 aria-haspopup="true"
                 aria-expanded={isTemoignagesDropdownOpen}
                 aria-controls={temoignagesMenuId}
-                className={`${linkClasses} flex items-center gap-1`}
+                className={`${linkClasses} flex items-center gap-2`}
               >
                 Témoignages
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isTemoignagesDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`h-4 w-4 text-white/50 transition-transform duration-300 ${isTemoignagesDropdownOpen ? "rotate-180" : ""}`}
+                />
               </button>
-              
+
               {/* Zone invisible pour garder le dropdown ouvert */}
               <div className="absolute top-full left-0 right-0 h-2"></div>
-              
+
               {/* Dropdown menu */}
               {isTemoignagesDropdownOpen && (
                 <div
                   id={temoignagesMenuId}
                   role="menu"
-                  className="absolute top-full left-0 mt-2 w-56 backdrop-blur-xl bg-secondary/90 rounded-xl border border-accent/25 shadow-[0_18px_40px_rgba(8,12,20,0.45)] overflow-hidden animate-fade-in z-[60]"
+                  className="absolute top-full left-0 z-[60] mt-3 w-56 overflow-hidden rounded-2xl border border-white/10 bg-[#0D0D0F]/95 shadow-[0_28px_60px_rgba(6,5,8,0.55)] backdrop-blur-2xl transition duration-200"
                 >
                   <a
                     href="#temoignages"
@@ -231,14 +239,14 @@ export const Navigation = () => {
             <a
               href="#contact"
               onClick={(event) => handleNavigation(event, "contact")}
-              className="ml-2 px-5 py-2 text-[15px] font-semibold rounded-lg bg-gradient-to-r from-primary/20 via-primary/15 to-primary/10 text-primary border border-primary/40 transition-colors duration-200 hover:bg-primary hover:text-primary-foreground"
+              className="ml-2 rounded-xl bg-[#C6252E] px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 shadow-[0_0_22px_rgba(198,37,46,0.4)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(198,37,46,0.55)]"
             >
               Contact
             </a>
             <button
               type="button"
               onClick={cycleMotionPreference}
-              className="ml-2 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-foreground/65 border border-accent/20 rounded-lg transition-colors duration-200 hover:text-white hover:border-accent/40 hover:bg-[#1A0E11]/70"
+              className="ml-2 rounded-xl border border-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-white/60 transition-all duration-300 hover:border-white/20 hover:text-white hover:bg-white/5"
               aria-label={`${motionLabel[preference]} – activer l'option suivante`}
             >
               {motionLabel[preference]}
@@ -249,7 +257,7 @@ export const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-white/5 transition-all duration-300"
+            className="relative z-10 md:hidden rounded-xl border border-white/10 bg-white/0 text-white/80 transition-all duration-300 hover:border-white/20 hover:bg-white/5"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-controls={mobileMenuId}
@@ -270,7 +278,7 @@ export const Navigation = () => {
             className="md:hidden mt-6 space-y-1 animate-fade-in"
             aria-label="Navigation principale mobile"
           >
-            <div className="backdrop-blur-xl bg-[#111113]/90 rounded-2xl border border-accent/25 p-2 shadow-[0_18px_40px_rgba(8,12,20,0.45)]">
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-[#121113]/95 via-[#0D0D0F]/94 to-[#121113]/92 p-3 shadow-[0_28px_60px_rgba(6,5,8,0.55)] backdrop-blur-2xl">
               <a
                 href="#accueil"
                 onClick={(event) => handleNavigation(event, "accueil")}
@@ -366,7 +374,7 @@ export const Navigation = () => {
               <a
                 href="#contact"
                 onClick={(event) => handleNavigation(event, "contact")}
-                className={`${mobileLinkClasses} font-semibold bg-gradient-to-r from-primary/20 via-primary/15 to-primary/10 text-primary hover:bg-primary hover:text-primary-foreground mt-2`}
+                className={`${mobileLinkClasses} mt-2 border-[#C6252E]/40 bg-[#C6252E]/10 text-white/80 hover:border-[#C6252E]/70 hover:bg-[#C6252E]/25 hover:text-white`}
                 style={{
                   animationDelay: '250ms',
                   animation: 'fade-in 0.3s ease-out forwards'
@@ -384,7 +392,7 @@ export const Navigation = () => {
                     }
                   }, 0);
                 }}
-                className="w-full px-4 py-3 rounded-xl text-[14px] font-semibold text-foreground/75 border border-accent/20 hover:border-accent/40 hover:text-white hover:bg-[#1A0E11]/70 transition-colors duration-200"
+                className="w-full rounded-xl border border-white/10 px-4 py-3 text-[12px] font-semibold uppercase tracking-[0.3em] text-white/60 transition-all duration-300 hover:border-white/20 hover:text-white hover:bg-white/5"
                 style={{
                   animationDelay: '300ms',
                   animation: 'fade-in 0.3s ease-out forwards'
